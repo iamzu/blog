@@ -1,4 +1,4 @@
-<ul class="navbar-nav mr-auto">
+<ul class="navbar-nav mr-auto navbar-default">
     <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
     @auth
         <li @if (Request::is('admin/post*')) class="nav-item active" @else class="nav-item" @endif>

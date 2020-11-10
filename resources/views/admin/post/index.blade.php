@@ -1,4 +1,5 @@
 @extends('admin.layout')
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -8,10 +9,12 @@
                         <h3 class="card-title">文章列表</h3>
                     </div>
                     <div class="card-body">
+
                         TODO
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-@endsection
+@stop

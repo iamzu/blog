@@ -28,7 +28,7 @@ Route::get('admin',function(){
     return redirect('/admin/post');
 });
 
-Route::middleware('auth')->namespace('Admin')->group(function(){
+Route::middleware('auth')->group(function(){
     Route::resource('admin/post', PostController::class);
     Route::resource('admin/tag', TagController::class);
     Route::get('admin/upload', [UploadController::class,'index']);
