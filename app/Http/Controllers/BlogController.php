@@ -11,6 +11,7 @@ class BlogController extends Controller
     //
     public function index()
     {
+        dd(human_filesize(1024));
         $posts = Post::query()->where('published_at', '<=', Carbon::now())
             ->orderBy('published_at', 'desc')
             ->paginate(config('blog.posts_per_page'));
