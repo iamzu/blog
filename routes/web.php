@@ -28,10 +28,14 @@ Route::get('admin',function(){
     return redirect('/admin/post');
 });
 
-Route::middleware('auth')->group(function(){
-    Route::resource('admin/post', PostController::class);
-    Route::resource('admin/tag', TagController::class);
-    Route::get('admin/upload', [UploadController::class,'index']);
+Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::resource('/post', PostController::class);
+    Route::resource('/tag', TagController::class);
+    Route::get('/upload', [UploadController::class,'index']);
+    Route::post('upload/file',[UploadController::class,'uploadFile']);
+    Route::delete('upload/file',[UploadController::class,'deleteFile']);
+    Route::post('upload/folder',[UploadController::class,'createFolder']);
+    Route::delete('upload/folder',[UploadController::class,'deleteFolder']);
 });
 
 //登录退出
