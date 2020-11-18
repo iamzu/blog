@@ -6,6 +6,7 @@ use App\Services\Markdowner;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class Post extends Model
 {
@@ -104,6 +105,57 @@ class Post extends Model
     public function getContentAttribute($value)
     {
         return $this->content_raw;
+    }
+
+    public function url(Tag $tag = null)
+    {
+        $url = url('blog/'.$this->slug);
+        if($tag){
+            $url .= '?tag='.urlencode($tag->tag);
+        }
+
+        return $url;
+    }
+
+    public function tagLinks($base = '/blog?tag=%TAG%')
+    {
+        $tags = $this->tags()->get()->pluck('tag')->all();
+        $return = [];
+        foreach ($tags as $tag) {
+            $url = str_replace('%TAG%', urlencode($tag), $base);
+            $return[] = '<a href="' . $url . '">' . e($tag) . '</a>';
+        }
+        return $return;
+    }
+
+    public function newerPost(Tag $tag = null)
+    {
+        $query = static::query()->where('published_at', '>', $this->published_at)
+                ->where('published_at', '<=', Carbon::now())
+                ->where('is_draft', 0)
+                ->orderBy('published_at', 'asc');
+        if ($tag) {
+            $query = $query->whereHas('tags', function ($q) use ($tag) {
+                $q->where('tag', '=', $tag->tag);
+            });
+        }
+
+        return $query->first();
+    }
+
+    public function olderPost(Tag $tag = null)
+    {
+        $query =
+            static::query()->where('published_at', '<', $this->published_at)
+                ->where('is_draft', 0)
+                ->orderBy('published_at', 'desc');
+        if ($tag) {
+            $query = $query->whereHas('tags', function ($q) use ($tag) {
+                $q->where('tag', '=', $tag->tag);
+            });
+        }
+
+        return $query->first();
     }
 
 }

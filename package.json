@@ -24,6 +24,7 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "selectize": "^0.12.6",
+        "startbootstrap-clean-blog": "^5.0.10",
         "vue-template-compiler": "^2.6.12"
     }
 }
