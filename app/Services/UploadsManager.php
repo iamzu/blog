@@ -198,7 +198,6 @@ class UploadsManager
         if ($this->disk->exists($path)) {
             return "File already exists.";
         }
-
         return $this->disk->put($path, $content);
     }
 

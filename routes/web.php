@@ -22,6 +22,7 @@ Route::get('/', function () {
     return redirect('/blog');
 });
 Route::get('/blog', [BlogController::class,'index'])->name('blog.name');
+Route::get('/blog/test', [BlogController::class,'test'])->name('blog.test');
 Route::get('/blog/{slug}', [BlogController::class,'showPost'])->name('blog.detail');
 
 Route::get('admin',function(){
@@ -29,7 +30,7 @@ Route::get('admin',function(){
 });
 
 Route::middleware('auth')->prefix('admin')->group(function(){
-    Route::resource('/post', PostController::class);
+    Route::resource('/post', PostController::class)->except('show');
     Route::resource('/tag', TagController::class);
     Route::get('/upload', [UploadController::class,'index']);
     Route::post('upload/file',[UploadController::class,'uploadFile']);
