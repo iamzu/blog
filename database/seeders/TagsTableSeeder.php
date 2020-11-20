@@ -13,6 +13,6 @@ class TagsTableSeeder extends Seeder
     {
         Tag::query()->truncate();
 
-        factory(Tag::class, 5)->create();
+        Tag::factory(5)->create();
     }
 }

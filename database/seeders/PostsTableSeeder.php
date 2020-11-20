@@ -41,5 +41,5 @@ class PostsTableSeeder extends Seeder
             $post->syncTags($postTags);
         });
     }
-    
+
 }

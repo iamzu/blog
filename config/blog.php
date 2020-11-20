@@ -3,7 +3,7 @@
 return [
     'name' => "Chia2",
     'title' => "Chia2 Blog",
-    'subtitle' => 'http://laravelacademy.org',
+    'subtitle' => 'http://blog.chia2.com',
     'description' => 'Share',
     'author' => 'Chia2',
     'page_image' => 'home-bg.jpg',

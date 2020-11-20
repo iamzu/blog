@@ -31,5 +31,6 @@ mix.copy('node_modules/selectize/dist/js/standalone/selectize.min.js',
 mix.combine([
     'node_modules/pickadate/lib/compressed/picker.js',
     'node_modules/pickadate/lib/compressed/picker.date.js',
-    'node_modules/pickadate/lib/compressed/picker.time.js'
+    'node_modules/pickadate/lib/compressed/picker.time.js',
+    'node_modules/pickadate/lib/compressed/translations/zh_CN.js',
 ], 'public/js/pickadate.min.js');
