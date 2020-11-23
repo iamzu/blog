@@ -9,6 +9,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $title ?? config('blog.title') }}</title>
+    <link rel="alternate" type="application/rss+xml" href="{{ url('rss') }}"
+          title="RSS Feed {{ config('blog.title') }}">
 
     {{-- Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -20,6 +22,7 @@
 @yield('page-header')
 
 @yield('content')
+@yield('comments')
 
 @include('blog.partials.page-footer')
 

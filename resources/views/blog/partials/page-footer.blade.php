@@ -28,8 +28,16 @@
                   </span>
                         </a>
                     </li>
+                    <li class="list-inline-item">
+                        <a href="{{ url('rss') }}" data-toggle="tooltip" title="RSS feed">
+                          <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                          </span>
+                        </a>
+                    </li>
                 </ul>
-                <p class="copyright text-muted">Copyright © {{ config('blog.author') }} 2018</p>
+                <p class="copyright text-muted">Copyright © {{ config('blog.author') }} {{now()->get('year')}}</p>
             </div>
         </div>
     </div>

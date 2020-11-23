@@ -22,28 +22,30 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/blog');
 });
-Route::get('/blog', [BlogController::class,'index'])->name('blog.name');
-Route::get('/blog/test', [BlogController::class,'test'])->name('blog.test');
-Route::get('/blog/{slug}', [BlogController::class,'showPost'])->name('blog.detail');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.name');
+Route::get('/blog/test', [BlogController::class, 'test'])->name('blog.test');
+Route::get('/blog/{slug}', [BlogController::class, 'showPost'])->name('blog.detail');
 
-Route::get('admin',function(){
+Route::get('admin', function () {
     return redirect('/admin/post');
 });
 
-Route::middleware('auth')->prefix('admin')->group(function(){
+Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('/post', PostController::class)->except('show');
     Route::resource('/tag', TagController::class);
-    Route::get('/upload', [UploadController::class,'index']);
-    Route::post('upload/file',[UploadController::class,'uploadFile']);
-    Route::delete('upload/file',[UploadController::class,'deleteFile']);
-    Route::post('upload/folder',[UploadController::class,'createFolder']);
-    Route::delete('upload/folder',[UploadController::class,'deleteFolder']);
+    Route::get('/upload', [UploadController::class, 'index']);
+    Route::post('upload/file', [UploadController::class, 'uploadFile']);
+    Route::delete('upload/file', [UploadController::class, 'deleteFile']);
+    Route::post('upload/folder', [UploadController::class, 'createFolder']);
+    Route::delete('upload/folder', [UploadController::class, 'deleteFolder']);
 });
 
 //登录退出
-Route::get('/login', [LoginController::class,'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class,'login']);
-Route::get('/logout', [LoginController::class,'logout'])->name('logout');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('contact', [ContactController::class,'showForm']);
-Route::post('contact', [ContactController::class,'sendContactInfo']);
+Route::get('contact', [ContactController::class, 'showForm']);
+Route::post('contact', [ContactController::class, 'sendContactInfo']);
+Route::get('rss', [BlogController::class, 'rss']);
+Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
