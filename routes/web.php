@@ -26,7 +26,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.name');
 Route::get('/blog/test', [BlogController::class, 'test'])->name('blog.test');
 Route::get('/blog/{slug}', [BlogController::class, 'showPost'])->name('blog.detail');
 
-Route::get('admin', function () {
+Route::get('manage', function () {
     return redirect('/admin/post');
 });
 
