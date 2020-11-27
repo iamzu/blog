@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Manage\PostController;
-use App\Http\Controllers\Manage\TagController;
-use App\Http\Controllers\Manage\UploadController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -26,11 +26,11 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog.name');
 Route::get('/blog/test', [BlogController::class, 'test'])->name('blog.test');
 Route::get('/blog/{slug}', [BlogController::class, 'showPost'])->name('blog.detail');
 
-Route::get('manage', function () {
+Route::get('admin', function () {
     return redirect('/admin/post');
 });
 
-Route::middleware('auth')->prefix('manage')->group(function () {
+Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('/post', PostController::class)->except('show');
     Route::resource('/tag', TagController::class);
     Route::get('/upload', [UploadController::class, 'index']);
