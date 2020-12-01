@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/blog');
 });
+Route::get('/excel', [BlogController::class, 'excel'])->name('blog.excel');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.name');
 Route::get('/blog/test', [BlogController::class, 'test'])->name('blog.test');
 Route::get('/blog/{slug}', [BlogController::class, 'showPost'])->name('blog.detail');
