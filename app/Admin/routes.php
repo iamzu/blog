@@ -15,4 +15,6 @@ Route::group([
     $router->get('/', 'HomeController@index');
     //轮播图
     $router->resource('rotations', 'RotationController');
+    //博客菜单
+    $router->resource('blog-menus', 'BlogMenuController');
 });
