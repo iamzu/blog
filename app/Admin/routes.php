@@ -13,9 +13,6 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index');
-
-
-    $router->get('/test', function(){
-        dd(pathinfo("dcat-admin/images/login-bg.jpg"));
-    });
+    //轮播图
+    $router->resource('rotations', 'RotationController');
 });
