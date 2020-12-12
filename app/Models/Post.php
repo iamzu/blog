@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Services\Markdowner;
+use Dcat\Admin\Traits\HasDateTimeFormatter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -10,7 +11,7 @@ use Carbon\Carbon;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory,HasDateTimeFormatter;
 
     protected $fillable = [
         'title', 'subtitle', 'content_raw', 'page_image', 'meta_description','layout', 'is_draft', 'published_at',

@@ -7,13 +7,12 @@
     <meta name="description" content="{{ $meta_description }}">
     <meta name="author" content="{{ config('blog.author') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ $title ?? config('blog.title') }}</title>
     <link rel="alternate" type="application/rss+xml" href="{{ url('rss') }}"
           title="RSS Feed {{ config('blog.title') }}">
-
     {{-- Styles --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/atom-one-dark.css') }}" rel="stylesheet">
     @yield('styles')
 </head>
 <body>
@@ -29,5 +28,7 @@
 {{-- Scripts --}}
 <script src="{{ asset('js/app.js') }}"></script>
 @yield('scripts')
+<script src="{{ asset('js/highlight.pack.js') }}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

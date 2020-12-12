@@ -17,4 +17,6 @@ Route::group([
     $router->resource('rotations', 'RotationController');
     //博客菜单
     $router->resource('blog-menus', 'BlogMenuController');
+    //文章
+    $router->resource('posts', 'PostController');
 });

@@ -1,10 +1,9 @@
 <?php
 
-use Dcat\Admin\Admin;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Form;
-use Dcat\Admin\Grid\Filter;
-use Dcat\Admin\Show;
+use Dcat\Admin\Form\Field\Markdown;
+
 
 /**
  * Dcat-admin - admin builder based on Laravel.
@@ -24,7 +23,7 @@ use Dcat\Admin\Show;
  * Admin::js('/packages/prettydocs/js/main.js');
  *
  */
-Form::resolving(function(Form  $form){
+Form::resolving(function (Form $form) {
     $form->disableEditingCheck();
 
     $form->disableCreatingCheck();
@@ -36,7 +35,7 @@ Form::resolving(function(Form  $form){
         $tools->disableView();
     });
 });
-Grid::resolving(function(Grid  $grid){
+Grid::resolving(function (Grid $grid) {
     $grid->disableViewButton();
     $grid->paginate(10);
 });
