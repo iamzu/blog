@@ -19,4 +19,6 @@ Route::group([
     $router->resource('blog-menus', 'BlogMenuController');
     //文章
     $router->resource('posts', 'PostController');
+    //标签
+    $router->resource('tags', 'TagController');
 });

@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use Dcat\Admin\Traits\HasDateTimeFormatter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Query\Builder;
 
 class Tag extends Model
 {
-    use HasFactory;
+    use HasFactory,HasDateTimeFormatter;
 
     protected $fillable = [
         'tag', 'title', 'subtitle', 'page_image', 'meta_description', 'reverse_direction'

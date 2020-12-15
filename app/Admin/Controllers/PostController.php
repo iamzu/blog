@@ -22,14 +22,19 @@ class PostController extends AdminController
         return Grid::make(new Post(), function (Grid $grid) {
             $grid->model()->orderBy('published_at', 'desc');
             $grid->column('id')->sortable();
-            $grid->column('title')->width(150);
-            $grid->column('subtitle')->width(250);
-            $grid->column('page_image');
-            $grid->column('meta_description');
+            $grid->column('title','标题')->width(150);
+            $grid->column('subtitle','副标题')->width(250);
+            $grid->column('page_image','封面图')->image('',100);
+            $grid->column('meta_description','备注')->width(150);
             $grid->column('is_draft', '草稿')->switch();
-            $grid->column('published_at','发布时间');
-            $grid->column('created_at');
-            $grid->column('updated_at')->sortable();
+            $grid->column('published_at','发布时间')->sortable();
+            $grid->column('created_at','创建/更新')->display(function(){
+                return <<<HTML
+            <span>{$this->created_at}</span>
+            <br>
+            <span>{$this->updated_at}</span>
+HTML;
+            });
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
