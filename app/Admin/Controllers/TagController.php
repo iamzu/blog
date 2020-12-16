@@ -10,6 +10,7 @@ use Dcat\Admin\Http\Controllers\AdminController;
 
 class TagController extends AdminController
 {
+    protected $title = '标签';
     /**
      * Make a grid builder.
      *
@@ -65,14 +66,10 @@ class TagController extends AdminController
     {
         return Form::make(new Tag(), function (Form $form) {
             $form->display('id');
-            $form->text('layout');
-            $form->text('meta_description');
-            $form->text('page_image');
-            $form->text('reverse_direction');
-            $form->text('subtitle');
-            $form->text('tag');
-            $form->text('title');
-
+            $form->text('tag','名称')->required();
+            $form->text('title','标题')->required();
+            $form->text('subtitle','副标题')->required();
+            $form->textarea('meta_description','介绍')->required();
             $form->display('created_at');
             $form->display('updated_at');
         });
