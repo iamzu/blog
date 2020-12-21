@@ -16,11 +16,7 @@ class CreateTagsTable extends Migration
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string('tag')->unique();
-            $table->string('title');
             $table->string('subtitle');
-            $table->string('page_image')->comment('标签图片');
-            $table->string('meta_description')->comment('标签介绍');
-            $table->string('layout')->default('blog.layouts.index')->comment('博客终归要使用布局');
             $table->boolean('reverse_direction')->comment('在文章列表按时间升序排列博客文章（默认是降序）');
             $table->timestamps();
         });

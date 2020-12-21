@@ -21,9 +21,7 @@ class TagController extends AdminController
         return Grid::make(new Tag(), function (Grid $grid) {
             $grid->column('id')->sortable();
             $grid->column('tag','名称');
-            $grid->column('title','标题');
             $grid->column('subtitle','副标题');
-            $grid->column('meta_description','介绍');
             $grid->column('created_at');
             $grid->column('updated_at')->sortable();
 
@@ -45,13 +43,8 @@ class TagController extends AdminController
     {
         return Show::make($id, new Tag(), function (Show $show) {
             $show->field('id');
-            $show->field('layout');
-            $show->field('meta_description');
-            $show->field('page_image');
-            $show->field('reverse_direction');
-            $show->field('subtitle');
             $show->field('tag');
-            $show->field('title');
+            $show->field('subtitle');
             $show->field('created_at');
             $show->field('updated_at');
         });
@@ -67,9 +60,7 @@ class TagController extends AdminController
         return Form::make(new Tag(), function (Form $form) {
             $form->display('id');
             $form->text('tag','名称')->required();
-            $form->text('title','标题')->required();
             $form->text('subtitle','副标题')->required();
-            $form->textarea('meta_description','介绍')->required();
             $form->display('created_at');
             $form->display('updated_at');
         });

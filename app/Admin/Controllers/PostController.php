@@ -2,9 +2,11 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Post;
+use App\Admin\Repositories\Post;
+use App\Models\Tag;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
+use Dcat\Admin\Models\Menu;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
 
@@ -19,9 +21,10 @@ class PostController extends AdminController
      */
     protected function grid()
     {
-        return Grid::make(new Post(), function (Grid $grid) {
+        return Grid::make(new Post('tags'), function (Grid $grid) {
             $grid->model()->orderBy('published_at', 'desc');
             $grid->column('id')->sortable();
+            $grid->tags('标签')->pluck('tag')->label();
             $grid->column('title','标题')->width(150);
             $grid->column('subtitle','副标题')->width(250);
             $grid->column('page_image','封面图')->image('',100);
@@ -35,10 +38,9 @@ class PostController extends AdminController
             <span>{$this->updated_at}</span>
 HTML;
             });
-
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
-
+                $filter->in('tags.tag_id','标签')->multipleSelect(Post::tagOptions());
             });
         });
     }
@@ -74,10 +76,13 @@ HTML;
      */
     protected function form()
     {
-        return Form::make(new Post(), function (Form $form) {
+        return Form::make(new Post('tags'),function (Form $form) {
             $form->display('id');
             $form->text('title')->required();
             $form->textarea('subtitle')->required();
+            $form->tags('tags', '标签')
+                ->pluck('tag', 'id') // name 为需要显示的 Tag 模型的字段，id 为主键
+                ->options(Tag::all());
             $form->image('page_image')->thumbnail('small', '300', '150')->autoUpload();
             $form->markdown('content_raw')->height(1000);
             $form->textarea('meta_description');

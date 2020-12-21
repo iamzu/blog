@@ -12,7 +12,7 @@ class Tag extends Model
     use HasFactory,HasDateTimeFormatter;
 
     protected $fillable = [
-        'tag', 'title', 'subtitle', 'page_image', 'meta_description', 'reverse_direction'
+        'tag', 'subtitle',
     ];
 
     public function posts()
@@ -31,11 +31,7 @@ class Tag extends Model
         foreach (array_diff($tags, $found) as $tag) {
             static::query()->create([
                 'tag'               => $tag,
-                'title'             => $tag,
                 'subtitle'          => 'Subtitle for ' . $tag,
-                'page_image'        => '',
-                'meta_description'  => '',
-                'reverse_direction' => false,
             ]);
         }
     }

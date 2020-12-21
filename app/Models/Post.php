@@ -159,4 +159,8 @@ class Post extends Model
         return $query->first();
     }
 
+    public static function tagOptions()
+    {
+        return Tag::all()->pluck('tag','id')->toArray();
+    }
 }
