@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Str;
 
 function human_filesize($bytes, $decimals = 2)
@@ -7,7 +8,7 @@ function human_filesize($bytes, $decimals = 2)
 
     $factor = floor((strlen($bytes) - 1) / 3);
 
-    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) .@$size[$factor];
+    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
 
 }
 
@@ -44,4 +45,18 @@ function page_image($value = null)
     }
 
     return $value;
+}
+
+/**
+ * 静态文件路径
+ * PhpStorm Live Template
+ * bs asset_blog('$NAME$')
+ * @param $path
+ * @return mixed
+ * Date: 2020/12/23 10:28
+ */
+function asset_blog($path)
+{
+    $path = '/blog_asset/'.$path;
+    return app('url')->asset($path, env('ASSET_HTTPS'));
 }
