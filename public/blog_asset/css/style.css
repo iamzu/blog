@@ -135,16 +135,16 @@ body, input, button, textarea, select {
 	src: url('../fonts/TaurusNormal.woff') format('woff'), url('../fonts/TaurusNormal.ttf') format('truetype'), url('../fonts/TaurusNormal.svg') format('svg');
 }
 /*禁止文字选中*/
-.user-select {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-khtml-user-select: none;
-	user-select: none;
-}
+/*.user-select {*/
+/*	-webkit-user-select: none;*/
+/*	-moz-user-select: none;*/
+/*	-ms-user-select: none;*/
+/*	-khtml-user-select: none;*/
+/*	user-select: none;*/
+/*}*/
 /*鼠标选中内容样式*/
 ::selection {
-	background: #444;
+	background: rgb(58,156,206);
 	color: #FFF;
 }
 ::-moz-selection {
@@ -486,10 +486,11 @@ color:#FFF;
 .carousel {
 	margin-bottom: 15px;
 	z-index: 1;
+    border-radius: 12px 8px 8px 12pxs;
 }
 .carousel-inner {
 	width: 100%;
-	max-height: 200px;
+	max-height: 385px;
 }
 .carousel-inner .item a {
 	display: block;
@@ -543,11 +544,11 @@ color:#FFF;
 /*今日推荐*/
 .excerpt-minic {
 	border: 1px solid #eaeaea;
-	padding: 20px;
+	padding: 10px;
 	overflow: hidden;
 	background-color: #fff;
-	margin-bottom: 15px;
-	border-radius: 4px;
+	margin: 10px auto;
+	border-radius: 12px 8px 8px 12px;
 }
 .excerpt-minic h2 {
 	font-size: 22px;
@@ -590,16 +591,16 @@ color:#FFF;
 	padding: 20px 20px 20px 255px;
 	overflow: hidden;
 	background-color: #fff;
-	margin-bottom: -1px;
+	margin-bottom: 10px;
 }
 .excerpt:hover {
-	background-color: #FBFDFF;
-	border-color: #42B5EF;
 	position: relative;
 	z-index: 20;
+    -webkit-box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
+    box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
 }
 .excerpt-1 {
-	border-radius: 4px 4px 0 0;
+	border-radius: 12px 8px 8px 12px;
 }
 .excerpt .focus {
 	float: left;

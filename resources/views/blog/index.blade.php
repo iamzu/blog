@@ -10,13 +10,13 @@
     <link rel="stylesheet" type="text/css" href="{{asset_blog('css/nprogress.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset_blog('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset_blog('css/font-awesome.min.css')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{asset_blog('images/icon/icon.png')}}">
-    <link rel="shortcut icon" href="{{asset_blog('images/icon/favicon.ico')}}">
+{{--    <link rel="apple-touch-icon-precomposed" href="{{asset_blog('images/icon/icon.png')}}">--}}
+{{--    <link rel="shortcut icon" href="{{asset_blog('images/icon/favicon.ico')}}">--}}
     <script src="{{asset_blog('js/jquery-2.1.4.min.js')}}"></script>
     <script src="{{asset_blog('js/nprogress.js')}}"></script>
     <script src="{{asset_blog('js/jquery.lazyload.min.js')}}"></script>
     <!--[if gte IE 9]>
-    <script src="{{asset_blog('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
+    <script src="{{asset_blog('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script
     <script src="{{asset_blog('js/html5shiv.min.js')}}" type="text/javascript"></script>
     <script src="{{asset_blog('js/respond.min.js')}}" type="text/javascript"></script>
     <script src="{{asset_blog('js/selectivizr-min.js')}}" type="text/javascript"></script>
@@ -30,32 +30,18 @@
 <header class="header">
     <nav class="navbar navbar-default" id="navbar">
         <div class="container">
-            <div class="header-topbar hidden-xs link-border">
-                <ul class="site-nav topmenu">
-                    <li><a href="tags.html">标签云</a></li>
-                    <li><a href="readers.html" rel="nofollow">读者墙</a></li>
-                    <li><a href="links.html" rel="nofollow">友情链接</a></li>
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" rel="nofollow">关注本站 <span class="caret"></span></a>
-                        <ul class="dropdown-menu header-topbar-dropdown-menu">
-                            <li><a data-toggle="modal" data-target="#WeChat" rel="nofollow"><i class="fa fa-weixin"></i> 微信</a></li>
-                            <li><a href="#" rel="nofollow"><i class="fa fa-weibo"></i> 微博</a></li>
-                            <li><a data-toggle="modal" data-target="#areDeveloping" rel="nofollow"><i class="fa fa-rss"></i> RSS</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <a data-toggle="modal" data-target="#loginModal" class="login" rel="nofollow">Hi,请登录</a>&nbsp;&nbsp;<a href="javascript:;" class="register" rel="nofollow">我要注册</a>&nbsp;&nbsp;<a href="" rel="nofollow">找回密码</a> </div>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-navbar" aria-expanded="false"> <span class="sr-only"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
                 <h1 class="logo hvr-bounce-in"><a href="" title=""><img src="{{asset_blog('images/logo.png')}}" alt=""></a></h1>
             </div>
             <div class="collapse navbar-collapse" id="header-navbar">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden-index active"><a data-cont="异清轩首页" href="index.html">异清轩首页</a></li>
-                    <li><a href="category.html">前端技术</a></li>
-                    <li><a href="category.html">后端程序</a></li>
-                    <li><a href="category.html">管理系统</a></li>
-                    <li><a href="category.html">授人以渔</a></li>
-                    <li><a href="category.html">程序人生</a></li>
+                    <li class="hidden-index active"><a data-cont="异清轩首页" href="index.html"></a></li>
+                    <li><a href="category.html"></a></li>
+                    <li><a href="category.html"></a></li>
+                    <li><a href="category.html"></a></li>
+                    <li><a href="category.html"></a></li>
+                    <li><a href="category.html"></a></li>
                 </ul>
                 <form class="navbar-form visible-xs" action="/Search" method="post">
                     <div class="input-group">
@@ -82,69 +68,74 @@
                     <li data-target="#focusslide" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active"> <a href="" target="_blank"><img src="{{asset_blog('images/banner/banner_01.jpg')}}" alt="" class="img-responsive"></a>
+                    <div class="item active"> <a href="" target="_blank"><img src="{{asset_blog('images/banner/01.jpg')}}" alt="" class="img-responsive"></a>
                         <!--<div class="carousel-caption"> </div>-->
                     </div>
-                    <div class="item"> <a href="" target="_blank"><img src="{{asset_blog('images/banner/banner_02.jpg')}}" alt="" class="img-responsive"></a>
+                    <div class="item"> <a href="" target="_blank"><img src="{{asset_blog('images/banner/02.jpg')}}" alt="" class="img-responsive"></a>
                         <!--<div class="carousel-caption"> </div>-->
                     </div>
-                    <div class="item"> <a href="" target="_blank"><img src="{{asset_blog('images/banner/banner_03.jpg')}}" alt="" class="img-responsive"></a>
+                    <div class="item"> <a href="" target="_blank"><img src="{{asset_blog('images/banner/03.jpg')}}" alt="" class="img-responsive"></a>
                         <!--<div class="carousel-caption"> </div>-->
                     </div>
                 </div>
                 <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev" rel="nofollow"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">上一个</span> </a> <a class="right carousel-control" href="#focusslide" role="button" data-slide="next" rel="nofollow"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">下一个</span> </a> </div>
             <article class="excerpt-minic excerpt-minic-index">
-                <h2><span class="red">【今日推荐】</span><a href="" title="">从下载看我们该如何做事</a></h2>
-                <p class="note">一次我下载几部电影，发现如果同时下载多部要等上几个小时，然后我把最想看的做个先后排序，去设置同时只能下载一部，结果是不到一杯茶功夫我就能看到最想看的电影。 这就像我们一段时间内想干成很多事情，是同时干还是有选择有顺序的干，结果很不一样。同时...</p>
+                <h5><span class="red">【今日推荐】</span><a href="" title="">从下载看我们该如何做事</a></h5>
             </article>
-            <div class="title">
-                <h3>最新发布</h3>
-                <div class="more"><a href="">PHP</a><a href="">JavaScript</a><a href="">EmpireCMS</a><a href="">Apache</a><a href="">MySQL</a></div>
-            </div>
+
             <article class="excerpt excerpt-1"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
-                <header><a class="cat" href="program">后端程序<i></i></a>
+                <header>
                     <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
                 </header>
+                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
                 <p class="meta">
                     <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time>
                     <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span> <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
-                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
             </article>
-            <article class="excerpt excerpt-2"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
-                <header><a class="cat" href="program">后端程序<i></i></a>
+            <article class="excerpt excerpt-1"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
+                <header>
                     <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
                 </header>
+                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
                 <p class="meta">
                     <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time>
                     <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span> <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
-                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
             </article>
-            <article class="excerpt excerpt-3"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
-                <header><a class="cat" href="program">后端程序<i></i></a>
+            <article class="excerpt excerpt-1"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
+                <header>
                     <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
                 </header>
+                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
                 <p class="meta">
                     <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time>
                     <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span> <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
-                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
             </article>
-            <article class="excerpt excerpt-4"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
-                <header><a class="cat" href="program">后端程序<i></i></a>
+            <article class="excerpt excerpt-1"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
+                <header>
                     <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
                 </header>
+                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
                 <p class="meta">
                     <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time>
                     <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span> <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
-                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
             </article>
-            <article class="excerpt excerpt-5"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
-                <header><a class="cat" href="program">后端程序<i></i></a>
+            <article class="excerpt excerpt-1"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
+                <header>
                     <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
                 </header>
+                <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
                 <p class="meta">
                     <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time>
                     <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span> <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
+            </article>
+            <article class="excerpt excerpt-1"><a class="focus" href="article.html" title=""><img class="thumb" data-original="{{asset_blog('images/excerpt.jpg')}}" src="{{asset_blog('images/excerpt.jpg')}}" alt=""></a>
+                <header>
+                    <h2><a href="article.html" title="">php如何判断一个日期的格式是否正确</a></h2>
+                </header>
                 <p class="note">可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... </p>
+                <p class="meta">
+                    <time class="time"><i class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time>
+                    <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共120人围观</span> <a class="comment" href="article.html#comment"><i class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
             </article>
             <nav class="pagination" style="display: none;">
                 <ul>
@@ -221,7 +212,7 @@
 </section>
 <footer class="footer">
     <div class="container">
-        <p>&copy; 2016 <a href="">ylsat.com</a> &nbsp; <a href="#" target="_blank" rel="nofollow">豫ICP备20151109-1</a> &nbsp; &nbsp; <a href="http://www.mycodes.net/" target="_blank">源码之家</a></p>
+        <p>&copy; {{date('Y')}} <a href="/">chia2.com</a> &nbsp; <a href="#" target="_blank" rel="nofollow">苏ICP备17068687号</a> &nbsp; &nbsp; <a href="/" target="_blank">Chia2's Blog</a></p>
     </div>
     <div id="gotop"><a class="gotop"></a></div>
 </footer>
@@ -254,43 +245,16 @@
         </div>
     </div>
 </div>
-<!--登录注册模态框-->
-<div class="modal fade user-select" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form action="/Admin/Index/login" method="post">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="loginModalLabel">登录</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="loginModalUserNmae">用户名</label>
-                        <input type="text" class="form-control" id="loginModalUserNmae" placeholder="请输入用户名" autofocus maxlength="15" autocomplete="off" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="loginModalUserPwd">密码</label>
-                        <input type="password" class="form-control" id="loginModalUserPwd" placeholder="请输入密码" maxlength="18" autocomplete="off" required>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="submit" class="btn btn-primary">登录</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 <!--右键菜单列表-->
-<div id="rightClickMenu">
-    <ul class="list-group rightClickMenuList">
-        <li class="list-group-item disabled">欢迎访问异清轩博客</li>
-        <li class="list-group-item"><span>IP：</span>172.16.10.129</li>
-        <li class="list-group-item"><span>地址：</span>河南省郑州市</li>
-        <li class="list-group-item"><span>系统：</span>Windows10 </li>
-        <li class="list-group-item"><span>浏览器：</span>Chrome47</li>
-    </ul>
-</div>
+{{--<div id="rightClickMenu">--}}
+{{--    <ul class="list-group rightClickMenuList">--}}
+{{--        <li class="list-group-item disabled">欢迎访问异清轩博客</li>--}}
+{{--        <li class="list-group-item"><span>IP：</span>172.16.10.129</li>--}}
+{{--        <li class="list-group-item"><span>地址：</span>河南省郑州市</li>--}}
+{{--        <li class="list-group-item"><span>系统：</span>Windows10 </li>--}}
+{{--        <li class="list-group-item"><span>浏览器：</span>Chrome47</li>--}}
+{{--    </ul>--}}
+{{--</div>--}}
 <script src="{{asset_blog('js/bootstrap.min.js')}}"></script>
 <script src="{{asset_blog('js/jquery.ias.js')}}"></script>
 <script src="{{asset_blog('js/scripts.js')}}"></script>
