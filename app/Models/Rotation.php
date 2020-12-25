@@ -11,5 +11,7 @@ class Rotation extends Model
 {
     use HasFactory,HasDateTimeFormatter,Resizable;
 
+    public const ENABLE = 1;
+    public const DISABLE = 0;
     protected $table = 'rotation';
 }

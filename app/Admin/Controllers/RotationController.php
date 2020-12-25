@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Admin\Repositories\Rotation;
+use App\Models\Rotation;
 use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
@@ -82,7 +82,7 @@ class RotationController extends AdminController
                 $form->image('image')->rules('required', ['required' => '请上传图片'])->thumbnail('small', '1920','1080')->autoUpload();
                 $form->switch('status', '状态')->customFormat(function ($v) {
                     return $v === '打开' ? 1 : 0;
-                });
+                })->default(Rotation::ENABLE);
                 $form->url('url')->required();
 
                 $form->display('created_at');
