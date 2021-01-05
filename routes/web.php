@@ -55,6 +55,7 @@ Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
 //博客
 
 Route::get('/blog-new', [IndexController::class, 'index'])->name('blog.index');
+Route::get('/blog-new/{slug}', [IndexController::class, 'showPost'])->name('blog.detail');
 
 Route::get('/upgrade-browser.html', function(){
     return view('blog.upgrade-browser');
