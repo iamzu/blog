@@ -7,7 +7,7 @@ return [
     'description' => 'Share',
     'author' => 'Chia2',
     'page_image' => 'home-bg.jpg',
-    'posts_per_page' => 5,
+    'posts_per_page' => 7,
     'rss_size' => 25,
     'uploads' => [
         'storage' => 'public',

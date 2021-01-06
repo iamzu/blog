@@ -15,7 +15,7 @@
                     <h2><a href="{{ route('blog.detail',['slug' => $item['slug']]) }}"
                            title="">{{ $item['title'] }}</a></h2>
                 </header>
-                <p class="note"> {{ Str::limit($item['content'],200) }}</p>
+                <p class="note"> {{ $item['subtitle'] }}</p>
                 <p class="meta">
                     <time class="time"><i class="glyphicon glyphicon-time"></i>{{ $item['published_at'] }}
                     </time>

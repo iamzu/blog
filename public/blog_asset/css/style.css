@@ -491,6 +491,7 @@ color:#FFF;
 .carousel-inner {
 	width: 100%;
 	max-height: 385px;
+    border-radius: 12px 8px 8px 12px;
 }
 .carousel-inner .item a {
 	display: block;
@@ -846,8 +847,8 @@ color:#FFF;
 	transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
 .article-content p {
-	text-indent: 30px;
-	margin-bottom: 18px;
+	/*text-indent: 30px;*/
+	margin: 15px 0;
 	word-wrap: break-word;
 }
 /*文章版权*/

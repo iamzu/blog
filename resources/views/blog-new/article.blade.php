@@ -2,10 +2,18 @@
     'title' => $post->title,
     'bodyClass' => 'user-select single',
     ])
+@section('styles')
+    <link href="{{ asset('css/atom-one-dark.css') }}" rel="stylesheet">
+@stop
 @section('content')
+    <style>
+        .article-content img{
+            pointer-events:none
+        }
+    </style>
     <div class="content">
         <header class="article-header">
-            <h1 class="article-title"><a href="article.html">php如何判断一个日期的格式是否正确</a></h1>
+            <h1 class="article-title"><a href="article.html">{{$post->title}}</a></h1>
             <div class="article-meta">
                 <span class="item article-meta-time">
           <time class="time" data-toggle="tooltip" data-placement="bottom" title="时间：2016-1-4 10:29:39"><i
@@ -13,21 +21,26 @@
           </span>
                 <span
                         class="item article-meta-category" data-toggle="tooltip" data-placement="bottom"
-                        title="栏目：后端程序"><i class="glyphicon glyphicon-list"></i> <a href="program"
+                        title="分类：{{$post->tags[0]->tag}}"><i class="glyphicon glyphicon-list"></i> <a href="program"
                                                                                     title="">{{$post->tags[0]->tag}}</a></span>
                 <span
                         class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="查看：120"><i
                             class="glyphicon glyphicon-eye-open"></i> 共120人围观</span>
         </header>
         <article class="article-content">
-            <p><img data-original="{{$storage->url($post->page_image)}}"
-                    src="{{$storage->url($post->page_image)}}" alt=""/></p>
+{{--            <p><img data-original="{{$storage->url($post->page_image)}}"--}}
+{{--                    src="{{$storage->url($post->page_image)}}" alt=""/></p>--}}
             {!! $post->content_html !!}
             <p class="article-copyright hidden-xs">未经允许不得转载：<a href="/">{{ $title ?? config('blog.title') }}</a> » <a
                         href="{{ route('blog.detail',['slug' => $post->slug]) }}">{{$post->title}}</a>
             </p>
         </article>
-        <div class="article-tags">标签：<a href="" rel="tag">{{$post->tags[0]->tag}}</a></div>
+        <div class="article-tags">
+            标签：
+            @foreach($post->tags as $tag)
+            <a href="" rel="tag">{{$tag->tag}}</a>
+            @endforeach
+        </div>
 
         <div class="title" id="comment">
             <h3>评论 <small>抢沙发</small></h3>
@@ -66,4 +79,8 @@
             </ol>
         </div>
     </div>
+@stop
+@section('scripts')
+    <script src="{{ asset('js/highlight.pack.js') }}"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
 @stop
