@@ -25,6 +25,6 @@
                                 class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
             </article>
         @endforeach
-        @include('blog-new.layouts.page')
+{{--        @include('blog-new.layouts.page')--}}
     </div>
 @stop
