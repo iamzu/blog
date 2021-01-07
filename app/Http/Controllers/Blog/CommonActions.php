@@ -31,4 +31,18 @@ trait CommonActions
             ->orderBy('published_at', 'desc')
             ->simplePaginate(config('blog.posts_per_page'));
     }
+    /**
+     * Author: chia2-y
+     * Email: admin@chia2.com
+     */
+    public function sidebarArticleList(): array
+    {
+        return Post::query()
+            ->where([
+                ['published_at', '<=', Carbon::now()],
+                ['is_draft', 0]
+            ])
+            ->orderBy('published_at', 'desc')
+            ->limit(5)->get()->toArray();
+    }
 }
