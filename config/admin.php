@@ -102,7 +102,7 @@ return [
     | If your page is going to be accessed via https, set it to `true`.
     |
     */
-    'https' => env('ADMIN_HTTPS', false),
+    'https' => env('ASSET_HTTPS', false),
 
     /*
     |--------------------------------------------------------------------------
