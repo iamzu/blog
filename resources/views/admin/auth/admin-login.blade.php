@@ -20,7 +20,7 @@
         text-align: left;
     }
     .bg-40{
-        background: url("/storage/dcat-admin/images/login-bg.jpg")!important;
+        background: url("/blog_asste/images/login-bg.jpg")!important;
     }
     .card{
         opacity: 0.7
