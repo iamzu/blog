@@ -1,3 +1,21 @@
+<link rel="stylesheet" href="{{asset_blog('calendar/css/style.css')}}">
+<style>
+    .calendar{
+        /*border-bottom:unset!important;*/
+        background-color: unset!important;
+        text-align: center;
+        font-family: cursive;
+        font-weight:900;
+        width:85%;
+        margin: 0 auto!important;
+    }
+    #schedule-box{
+        padding: 5px;
+    }
+    .boxshaw{
+        box-shadow: unset;
+    }
+</style>
 <aside class="sidebar">
     <div class="fixed">
         <div class="widget widget_search">
@@ -10,6 +28,16 @@
             </span></div>
             </form>
         </div>
+    </div>
+    <div class="widget widget_hot">
+
+        <div style="width: 100%">
+            <h3 class="calendar">时间不是流逝的，流逝的是我们</h3>
+        </div>
+        <div id='schedule-box' class="boxshaw"></div>
+{{--        <div>--}}
+{{--            <h3 id='h3Ele'></h3>--}}
+{{--        </div>--}}
     </div>
     <div class="widget widget_hot">
         <h3>热门文章</h3>
@@ -36,3 +64,30 @@
         </ul>
     </div>
 </aside>
+<script src="{{asset_blog('calendar/js/schedule.js')}}"></script>
+<script>
+    var mySchedule = new Schedule({
+        el: '#schedule-box',	//容器元素
+        date: '{{date('Y-m-d')}}',		//当前日期
+        // disabledBefore: '2018-07-10',	//禁用此日期之前
+        // disabledAfter: '2018-11-15',	//禁用此日期之后
+        // disabledDate: ['2018-8-20', '2018-8-2', '2018-8-23'],	//禁用的日期
+        selectedDate: ['{{date('Y-7-07')}}','{{date('Y-10-13')}}',],	//选中的日期
+        // showToday: true,	//回到今天
+        // clickCb: function (date) {
+        //     document.querySelector('#h3Ele').innerHTML = '日期：' + date
+        // },
+        nextMonthCb: function (currentYear, currentMonth) {
+            console.log('currentYear:' + currentYear, 'currentMonth:' + currentMonth)
+        },
+        nextYeayCb: function (currentYear, currentMonth) {
+            console.log('currentYear:' + currentYear, 'currentMonth:' + currentMonth)
+        },
+        prevMonthCb: function (currentYear, currentMonth) {
+            console.log('currentYear:' + currentYear, 'currentMonth:' + currentMonth)
+        },
+        prevYearCb: function (currentYear, currentMonth) {
+            console.log('currentYear:' + currentYear, 'currentMonth:' + currentMonth)
+        }
+    });
+</script>

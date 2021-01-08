@@ -1244,10 +1244,10 @@ color:#FFF;
 	padding: 11px 15px 10px;
 	cursor: default;
 }
-.widget h3:hover {
-	cursor: pointer;
-	color: #F73B3B;
-}
+/*.widget h3:hover {*/
+/*	cursor: pointer;*/
+/*	color: #F73B3B;*/
+/*}*/
 /*侧边栏标签页*/
 .widget-tabs {
 	height: 200px;
