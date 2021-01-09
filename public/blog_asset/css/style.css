@@ -114,7 +114,7 @@ body, input, button, textarea, select {
 	font-size: 20px;
 	margin: 0;
 	float: left;
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 .title h3:hover {
 	color: #F73B3B;
@@ -575,7 +575,7 @@ color:#FFF;
 	color: #666;
 	margin-bottom: 0;
 	text-indent: 28px;
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 }
 .excerpt-minic-index h2 {
 	font-size: 18px;
@@ -589,7 +589,7 @@ color:#FFF;
 	color: #F73B3B;
 }
 .excerpt-minic-index span.red:hover {
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 	color: #F46D6D;
 }
 /*最新发布*/
@@ -736,12 +736,12 @@ color:#FFF;
 	color: #FFF;
 }
 .pagination ul > .active > a, .pagination ul > .active > span {
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 }
 .pagination ul > li > span, .pagination ul > .disabled > span, .pagination ul > .disabled > a, .pagination ul > .disabled > a:hover, .pagination ul > .disabled > a:focus {
 	color: #999999;
 	background-color: transparent;
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 }
 /*分页加载*/
 .pagination-loading {
@@ -793,7 +793,7 @@ color:#FFF;
 }
 .article-meta .item {
 	margin-right: 20px;
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 .article-meta .item a {
 	color: #666;
@@ -833,7 +833,7 @@ color:#FFF;
 	font-size: 15px;
 	line-height: 25px;
 	word-wrap: break-word;
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 }
 .article-content img {
 	margin: 5px auto;
@@ -842,7 +842,7 @@ color:#FFF;
 	height: auto;
 }
 .article-content img:hover {
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 	border-radius: 5px;
 	-moz-box-shadow: 0px 0px 6px rgba(51,153,204,.6);
 	-webkit-box-shadow: 0px 0px 6px rgba(51,153,204,.6);
@@ -866,7 +866,7 @@ color:#FFF;
 	border-radius: 3px;
 	color: #aaa;
 	text-align: center;
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 }
 .article-content .article-copyright a, .article-copyright a:hover {
 	color: #AAA;
@@ -883,7 +883,7 @@ color:#FFF;
 .article-tags {
 	margin: 30px 0;
 	text-align: center;
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 }
 .article-tags a {
 	display: inline-block;
@@ -948,7 +948,7 @@ color:#FFF;
 	margin-bottom: 15px;
 	font-weight: normal;
 	font-size: 18px;
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 #respond .comment {
 	position: relative;
@@ -969,7 +969,7 @@ color:#FFF;
 	margin-bottom: 5px;
 }
 .comment-title img:hover {
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 	-moz-transition: all 0.8s ease-in-out;
 	-webkit-transition: all 0.8s ease-in-out;
 	-o-transition: all 0.8s ease-in-out;
@@ -1035,7 +1035,7 @@ color:#FFF;
 	height: 38px;
 	line-height: 38px;
 	padding: 0 10px;
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 .comment-box span.emotion:hover {
 	color: #3399CC;
@@ -1057,7 +1057,7 @@ color:#FFF;
 	padding: 0px;
 }
 .qqFace table td img {
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 .qqFace table td img:hover {
 	-webkit-transform: scale(1.05);
@@ -1094,7 +1094,7 @@ color:#FFF;
 	border-top: solid 1px #F2F2F2;
 }
 .comment-prompt {
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 	display: none;
 	text-align: center;
 	font-size: 14px;
@@ -1121,7 +1121,7 @@ color:#FFF;
 	margin: 0;
 	list-style: none;
 	margin-bottom: 10px;
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 .comment-content {
 	border-bottom: #EEE 1px solid;
@@ -1223,7 +1223,7 @@ color:#FFF;
 .quotes .current {
 	background: #3399CC;
 	color: #FFFFCC;
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 }
 /*侧边栏*/
 .sidebar {
@@ -1248,10 +1248,10 @@ color:#FFF;
 	background-color: #fbfbfb;
 	margin: 0;
 	padding: 11px 15px 10px;
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 }
 /*.widget h3:hover {*/
-/*	cursor: pointer;*/
+/*	cursor: url(/cursor/Hand.cur),pointer;*/
 /*	color: #F73B3B;*/
 /*}*/
 /*侧边栏标签页*/
@@ -1354,7 +1354,7 @@ color:#FFF;
 /*侧边栏每日一句*/
 .widget-sentence-content {
 	padding: 15px;
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 .widget-sentence-content h4 {
 	color: #3399CC;
@@ -1434,7 +1434,7 @@ color:#FFF;
 }
 /*返回顶部*/
 .gotop {
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 	position: fixed;
 	right: 25px;
 	bottom: 25px;
@@ -1973,7 +1973,7 @@ color:#FFF;
 	z-index: 99999;
 }
 #rightClickMenu>ul>li {
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 #rightClickMenu>ul>li>span {
 	width: 65px;
@@ -2024,7 +2024,7 @@ color:#FFF;
 	border-radius: 4px;
 }
 .container-page .article-title {
-	cursor: pointer;
+	cursor: url(/cursor/Hand.cur),pointer;
 }
 .container-page .article-title:hover {
 	color: #F73B3B;
@@ -2190,7 +2190,7 @@ color:#FFF;
 	margin-top: 100px;
 }
 #loginModal h4 {
-	cursor: default;
+	cursor: url(/cursor/Arrow.cur),default;
 	color: #3399CC;
 }
 #loginModal .modal-body {
