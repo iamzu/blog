@@ -15,6 +15,21 @@
     .boxshaw{
         box-shadow: unset;
     }
+    .today{
+        color:#3399CC
+    }
+    /*今天*/
+    .today-flag{
+        background: #3399CC;
+        color: #fff;
+    }
+    .current-month>.dayStyle:hover {
+        background: #00C2B1;
+    }
+    /*选中*/
+    .selected-style{
+        background-color:#EF3737;
+    }
 </style>
 <aside class="sidebar">
     <div class="fixed">
@@ -72,7 +87,7 @@
         // disabledBefore: '2018-07-10',	//禁用此日期之前
         // disabledAfter: '2018-11-15',	//禁用此日期之后
         // disabledDate: ['2018-8-20', '2018-8-2', '2018-8-23'],	//禁用的日期
-        selectedDate: ['{{date('Y-7-07')}}','{{date('Y-10-13')}}',],	//选中的日期
+        selectedDate: ['{{date('Y-1-03')}}','{{date('Y-7-17')}}','{{date('Y-10-13')}}',],	//选中的日期
         // showToday: true,	//回到今天
         // clickCb: function (date) {
         //     document.querySelector('#h3Ele').innerHTML = '日期：' + date

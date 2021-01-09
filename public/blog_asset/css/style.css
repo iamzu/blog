@@ -14,10 +14,17 @@ body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, button, input, texta
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
 	display: block;
 }
+body{
+    cursor: url(/cursor/Arrow.cur),default;
+
+}
 html, body {
 	color: #444;
 	background-color: #f6f6f6;
 	overflow-x: hidden;
+}
+a{
+    color: #3399CC;
 }
 /*页面滚动条*/
 html::-webkit-scrollbar {
@@ -39,7 +46,7 @@ html::-webkit-scrollbar-thumb:hover {
 }
 /*公共*/
 a {
-	cursor: pointer;
+    cursor: url(/cursor/Hand.cur),pointer;
 	text-decoration: none;
 }
 a:hover {
@@ -671,7 +678,7 @@ color:#FFF;
 	margin-bottom: 10px;
 }
 .excerpt .time, .excerpt .comment, .excerpt .views {
-	cursor: pointer;
+    cursor: url(/cursor/Hand.cur),pointer;
 	margin-right: 20px;
 }
 .excerpt .time:hover, .excerpt .comment:hover, .excerpt .views:hover {
@@ -691,7 +698,6 @@ color:#FFF;
 	color: #999;
 	word-wrap: break-word;
 	line-height: 20px;
-	cursor: default;
 }
 /*分页*/
 .pagination {
