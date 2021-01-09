@@ -2,7 +2,7 @@
 
 return [
     'name' => "Chia2",
-    'title' => "Chia2 Blog",
+    'title' => "Chia2 BLOG",
     'subtitle' => 'http://blog.chia2.com',
     'description' => 'Share',
     'author' => 'Chia2',

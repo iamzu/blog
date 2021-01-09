@@ -31,8 +31,7 @@
 {{--            <p><img data-original="{{$storage->url($post->page_image)}}"--}}
 {{--                    src="{{$storage->url($post->page_image)}}" alt=""/></p>--}}
             {!! $post->content_html !!}
-            <p class="article-copyright hidden-xs">未经允许不得转载：<a href="/">{{ $title ?? config('blog.title') }}</a> » <a
-                        href="{{ route('blog.detail',['slug' => $post->slug]) }}">{{$post->title}}</a>
+            <p class="article-copyright hidden-xs" style="font-size: 15px">本文为作者原创或转载，允许转载，由Chia2在<a href="/" style="text-decoration:revert">{{ $title ?? config('blog.title') }}</a> 发布
             </p>
         </article>
         <div class="article-tags">
@@ -71,9 +70,9 @@
                     <div class="comment-avatar"><img class="avatar"
                                                      src="{{asset_blog('images/icon/icon.png')}}" alt=""/>
                     </div>
-                    <div class="comment-main">
-                        <p>来自<span class="address">河南郑州</span>的用户<span class="time">(2016-01-06)</span><br/>
-                            这是匿名评论的内容这是匿名评论的内容，这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容。</p>
+{{--                    <div class="comment-main">--}}
+{{--                        <p>来自<span class="address">河南郑州</span>的用户<span class="time">(2016-01-06)</span><br/>--}}
+{{--                            这是匿名评论的内容这是匿名评论的内容，这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容。</p>--}}
                     </div>
                 </li>
             </ol>
