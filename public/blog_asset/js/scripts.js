@@ -57,10 +57,10 @@ $.fn.navSmartFloat = function () {
             if (scrolls > top) { //如果滚动到页面超出了当前元素element的相对页面顶部的高度
                 $('.header-topbar').fadeOut(0);
                 if (window.XMLHttpRequest) { //如果不是ie6
-                    element.css({
-                        position: "fixed",
-                        top: 0
-                    }).addClass("shadow");
+                    // element.css({
+                    //     position: "fixed",
+                    //     top: 0
+                    // }).addClass("shadow");
                 } else { //如果是ie6
                     element.css({
                         top: scrolls
@@ -68,10 +68,10 @@ $.fn.navSmartFloat = function () {
                 }
             } else {
                 $('.header-topbar').fadeIn(500);
-                element.css({
-                    position: pos,
-                    top: top
-                }).removeClass("shadow");
+                // element.css({
+                //     position: pos,
+                //     top: top
+                // }).removeClass("shadow");
             }
         });
     };
@@ -145,7 +145,7 @@ $(window).scroll(function () {
     if (windowScrollTop > sidebarHeight - 60 && sidebar.length) {
         $('.fixed').css({
             'position': 'fixed',
-            'top': '70px',
+            'top': '80px',
             'width': '360px'
         });
     } else {

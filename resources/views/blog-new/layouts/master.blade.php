@@ -29,7 +29,7 @@
 
 <body class="{{$bodyClass ?? 'user-select'}}">
 <header class="header">
-    <nav class="navbar navbar-default" id="navbar">
+    <nav class="navbar navbar-default shadow" style="position: fixed;top:0" id="navbar">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
