@@ -41,43 +41,43 @@
             <a href="" rel="tag">{{$tag->tag}}</a>
             @endforeach
         </div>
-
-        <div class="title" id="comment">
-            <h3>评论 <small>抢沙发</small></h3>
-        </div>
-        <div id="respond">
-            <form action="" method="post" id="comment-form">
-                <div class="comment">
-                    <div class="comment-title"><img class="avatar" src="{{asset_blog('images/icon/icon.png')}}"
-                                                    alt=""/></div>
-                    <div class="comment-box">
-                        <textarea placeholder="您的评论可以一针见血" name="comment" id="comment-textarea" cols="100%" rows="3"
-                                  tabindex="1"></textarea>
-                        <div class="comment-ctrl">
-                            <div class="comment-prompt"><i class="fa fa-spin fa-circle-o-notch"></i> <span
-                                        class="comment-prompt-text"></span></div>
-                            <input type="hidden" value="1" class="articleid"/>
-                            <button type="submit" name="comment-submit" id="comment-submit" tabindex="5" articleid="1">
-                                评论
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div id="postcomments">
-            <ol class="commentlist">
-                <li class="comment-content"><span class="comment-f">#1</span>
-                    <div class="comment-avatar"><img class="avatar"
-                                                     src="{{asset_blog('images/icon/icon.png')}}" alt=""/>
-                    </div>
+{{--       评论--}}
+{{--        <div class="title" id="comment">--}}
+{{--            <h3>评论 <small>抢沙发</small></h3>--}}
+{{--        </div>--}}
+{{--        <div id="respond">--}}
+{{--            <form action="" method="post" id="comment-form">--}}
+{{--                <div class="comment">--}}
+{{--                    <div class="comment-title"><img class="avatar" src="{{asset_blog('images/icon/icon.png')}}"--}}
+{{--                                                    alt=""/></div>--}}
+{{--                    <div class="comment-box">--}}
+{{--                        <textarea placeholder="您的评论可以一针见血" name="comment" id="comment-textarea" cols="100%" rows="3"--}}
+{{--                                  tabindex="1"></textarea>--}}
+{{--                        <div class="comment-ctrl">--}}
+{{--                            <div class="comment-prompt"><i class="fa fa-spin fa-circle-o-notch"></i> <span--}}
+{{--                                        class="comment-prompt-text"></span></div>--}}
+{{--                            <input type="hidden" value="1" class="articleid"/>--}}
+{{--                            <button type="submit" name="comment-submit" id="comment-submit" tabindex="5" articleid="1">--}}
+{{--                                评论--}}
+{{--                            </button>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </form>--}}
+{{--        </div>--}}
+{{--        <div id="postcomments">--}}
+{{--            <ol class="commentlist">--}}
+{{--                <li class="comment-content"><span class="comment-f">#1</span>--}}
+{{--                    <div class="comment-avatar"><img class="avatar"--}}
+{{--                                                     src="{{asset_blog('images/icon/icon.png')}}" alt=""/>--}}
+{{--                    </div>--}}
 {{--                    <div class="comment-main">--}}
 {{--                        <p>来自<span class="address">河南郑州</span>的用户<span class="time">(2016-01-06)</span><br/>--}}
 {{--                            这是匿名评论的内容这是匿名评论的内容，这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容这是匿名评论的内容。</p>--}}
-                    </div>
-                </li>
-            </ol>
-        </div>
+{{--                    </div>--}}
+{{--                </li>--}}
+{{--            </ol>--}}
+{{--        </div>--}}
     </div>
 @stop
 @section('scripts')
