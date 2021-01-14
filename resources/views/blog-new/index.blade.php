@@ -5,14 +5,14 @@
         @include('blog-new.layouts.word')
         @foreach($articleList as $item)
             <article class="excerpt excerpt-1">
-                <a class="focus" href="{{ route('blog.detail',['slug' => $item['slug']]) }}" title="">
+                <a class="focus" href="{{ route('blog.detail',['id' => $item['id']]) }}" title="">
                     <img class="thumb"
                          data-original="{{$storage->url($item['page_image'])}}"
                          src="{{$storage->url($item['page_image'])}}"
                          alt="">
                 </a>
                 <header>
-                    <h2><a href="{{ route('blog.detail',['slug' => $item['slug']]) }}"
+                    <h2><a href="{{ route('blog.detail',['id' => $item['id']]) }}"
                            title="">{{ $item['title'] }}</a></h2>
                 </header>
                 <p class="note"> {{ $item['subtitle'] }}</p>
@@ -21,7 +21,7 @@
                     </time>
                     <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共0人围观</span> <a
                             class="comment"
-                            href="{{ route('blog.detail',['slug' => $item['slug']]) }}"><i
+                            href="{{ route('blog.detail',['id' => $item['id']]) }}"><i
                                 class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
             </article>
         @endforeach

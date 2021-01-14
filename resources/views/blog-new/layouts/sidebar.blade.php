@@ -67,7 +67,7 @@
         <ul>
             @foreach($sidebarArticleList as $item)
             <li>
-                <a href="{{ route('blog.detail',['slug' => $item['slug']]) }}">
+                <a href="{{ route('blog.detail',['id' => $item['id']]) }}">
                     <span class="thumbnail">
                         <img class="thumb"
                              data-original="{{$storage->url($item['page_image'])}}"

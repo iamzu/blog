@@ -32,9 +32,9 @@ class IndexController extends Controller
         return view('blog-new.index', compact('rotaryMaps', 'articleList', 'storage', 'sidebarArticleList'));
     }
 
-    public function showPost($slug, Request $request)
+    public function showPost($id, Request $request)
     {
-        $post = Post::with('tags')->where('slug', $slug)->firstOrFail();
+        $post = Post::with('tags')->where('id', $id)->firstOrFail();
 
         $map = Post::getArticleMapAndContent($post->content_html);
 
