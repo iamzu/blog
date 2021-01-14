@@ -3,6 +3,7 @@
     'bodyClass' => 'user-select single',
     ])
 @section('styles')
+    <link href="{{ asset_blog('css/markdown.css') }}" rel="stylesheet">
     <link href="{{ asset('css/atom-one-dark.css') }}" rel="stylesheet">
 @stop
 @section('content')
@@ -27,7 +28,7 @@
                         class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="查看：120"><i
                             class="glyphicon glyphicon-eye-open"></i> 共120人围观</span>
         </header>
-        <article class="article-content">
+        <article class="article-content markdown-body">
 {{--            <p><img data-original="{{$storage->url($post->page_image)}}"--}}
 {{--                    src="{{$storage->url($post->page_image)}}" alt=""/></p>--}}
             {!! $post->content_html !!}
@@ -81,5 +82,8 @@
 @stop
 @section('scripts')
     <script src="{{ asset('js/highlight.pack.js') }}"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+    </script>
 @stop
