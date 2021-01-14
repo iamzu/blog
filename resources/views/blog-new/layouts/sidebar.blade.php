@@ -44,7 +44,7 @@
             </form>
         </div>
     </div>
-    @if($articleMap)
+    @if($articleMap ?? null)
         <div class="widget widget_hot">
             <h3>导航</h3>
             <ul>
