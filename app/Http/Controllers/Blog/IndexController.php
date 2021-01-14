@@ -35,12 +35,18 @@ class IndexController extends Controller
     public function showPost($slug, Request $request)
     {
         $post = Post::with('tags')->where('slug', $slug)->firstOrFail();
+
+        $map = Post::getArticleMapAndContent($post->content_html);
+
+        $post->content_html = $map['content'];
+
         $tag = $request->get('tag');
         if ($tag) {
             $tag = Tag::query()->where('tag', $tag)->firstOrFail();
         }
         $storage = $this->storage;
         $sidebarArticleList = $this->sidebarArticleList;
-        return view('blog-new.article', compact('post', 'tag', 'storage','sidebarArticleList'));
+        $articleMap = $map['map'];
+        return view('blog-new.article', compact('post', 'tag', 'storage', 'sidebarArticleList','articleMap'));
     }
 }

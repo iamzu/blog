@@ -25,6 +25,7 @@ function setCookie(name, value, time) {
     exp.setTime(exp.getTime() + strsec * 1);
     document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString();
 }
+
 function getsec(str) {
     var str1 = str.substring(1, str.length) * 1;
     var str2 = str.substring(0, 1);
@@ -204,48 +205,63 @@ $(window).scroll(function () {
 // };
 
 /*文章评论*/
-$(function(){
-	$("#comment-submit").click(function(){
-		var commentContent = $("#comment-textarea");
-		var commentButton = $("#comment-submit");
-		var promptBox = $('.comment-prompt');
-		var promptText = $('.comment-prompt-text');
-		var articleid = $('.articleid').val();
-		promptBox.fadeIn(400);
-		if(commentContent.val() === ''){
-			promptText.text('请留下您的评论');
-			return false;
-		}
-		commentButton.attr('disabled',true);
-		commentButton.addClass('disabled');
-		promptText.text('正在提交...');
-		$.ajax({
-			type:"POST",
-			url:"test.php?id=" + articleid,
-			//url:"/Article/comment/id/" + articleid,
-			data:"commentContent=" + replace_em(commentContent.val()),
-			cache:false, //不缓存此页面
-			success:function(data){
-				alert(data);
-				promptText.text('评论成功!');
-			    commentContent.val(null);
-				$(".commentlist").fadeIn(300);
-				/*$(".commentlist").append();*/
-				commentButton.attr('disabled',false);
-				commentButton.removeClass('disabled');
-			}
-		});
-		/*$(".commentlist").append(replace_em(commentContent.val()));*/
-		promptBox.fadeOut(100);
-		return false;
-	});
+$(function () {
+    $('a[href*=#]').click(function () {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+            var $target = $(this.hash);
+            $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+            if ($target.length) {
+                var targetOffset = $target.offset().top;
+                $('html,body').animate({
+                        scrollTop: targetOffset
+                    },
+                    1000);
+                return false;
+            }
+        }
+    });
+    $("#comment-submit").click(function () {
+        var commentContent = $("#comment-textarea");
+        var commentButton = $("#comment-submit");
+        var promptBox = $('.comment-prompt');
+        var promptText = $('.comment-prompt-text');
+        var articleid = $('.articleid').val();
+        promptBox.fadeIn(400);
+        if (commentContent.val() === '') {
+            promptText.text('请留下您的评论');
+            return false;
+        }
+        commentButton.attr('disabled', true);
+        commentButton.addClass('disabled');
+        promptText.text('正在提交...');
+        $.ajax({
+            type: "POST",
+            url: "test.php?id=" + articleid,
+            //url:"/Article/comment/id/" + articleid,
+            data: "commentContent=" + replace_em(commentContent.val()),
+            cache: false, //不缓存此页面
+            success: function (data) {
+                alert(data);
+                promptText.text('评论成功!');
+                commentContent.val(null);
+                $(".commentlist").fadeIn(300);
+                /*$(".commentlist").append();*/
+                commentButton.attr('disabled', false);
+                commentButton.removeClass('disabled');
+            }
+        });
+        /*$(".commentlist").append(replace_em(commentContent.val()));*/
+        promptBox.fadeOut(100);
+        return false;
+    });
 });
+
 //对文章内容进行替换
-function replace_em(str){
-	str = str.replace(/\</g,'&lt;');
-	str = str.replace(/\>/g,'&gt;');
-	str = str.replace(/\[em_([0-9]*)\]/g,'<img src="/Home/images/arclist/$1.gif" border="0" />');
-	return str;
+function replace_em(str) {
+    str = str.replace(/\</g, '&lt;');
+    str = str.replace(/\>/g, '&gt;');
+    str = str.replace(/\[em_([0-9]*)\]/g, '<img src="/Home/images/arclist/$1.gif" border="0" />');
+    return str;
 }
 
 //Console
@@ -254,4 +270,6 @@ try {
         console.log("\n欢迎访问Chia2's Blog");
         console.log("\n请记住我们的网址：%c blog.chin2.com", "color:red");
     }
-} catch (e) {};
+} catch (e) {
+}
+;

@@ -11,10 +11,10 @@ use Carbon\Carbon;
 
 class Post extends Model
 {
-    use HasFactory,HasDateTimeFormatter;
+    use HasFactory, HasDateTimeFormatter;
 
     protected $fillable = [
-        'title', 'subtitle', 'content_raw', 'page_image', 'meta_description','layout', 'is_draft', 'published_at',
+        'title', 'subtitle', 'content_raw', 'page_image', 'meta_description', 'layout', 'is_draft', 'published_at',
     ];
 
     protected $dates = ['published_at'];
@@ -110,9 +110,9 @@ class Post extends Model
 
     public function url(Tag $tag = null)
     {
-        $url = url('blog/'.$this->slug);
-        if($tag){
-            $url .= '?tag='.urlencode($tag->tag);
+        $url = url('blog/' . $this->slug);
+        if ($tag) {
+            $url .= '?tag=' . urlencode($tag->tag);
         }
 
         return $url;
@@ -132,9 +132,9 @@ class Post extends Model
     public function newerPost(Tag $tag = null)
     {
         $query = static::query()->where('published_at', '>', $this->published_at)
-                ->where('published_at', '<=', Carbon::now())
-                ->where('is_draft', 0)
-                ->orderBy('published_at', 'asc');
+            ->where('published_at', '<=', Carbon::now())
+            ->where('is_draft', 0)
+            ->orderBy('published_at', 'asc');
         if ($tag) {
             $query = $query->whereHas('tags', function ($q) use ($tag) {
                 $q->where('tag', '=', $tag->tag);
@@ -161,6 +161,47 @@ class Post extends Model
 
     public static function tagOptions()
     {
-        return Tag::all()->pluck('tag','id')->toArray();
+        return Tag::all()->pluck('tag', 'id')->toArray();
+    }
+
+    public static function getArticleMapAndContent($html): array
+    {
+
+        $doc = new \DOMDocument();
+        $doc->loadHTML('<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>' . $html);
+
+        $xPath = new \DOMXPath($doc);
+        $idItems = $xPath->query('//h1|//h2|//h3|//h4|//h5|//h6');
+        $idMap = [];
+        $mapHTML = '';
+        foreach ($idItems as $item) {
+            if (get_class($item) !== 'DOMElement') {
+                continue;
+            }
+            if (!in_array($item->nodeName, ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])) {
+                continue;
+            }
+            $id = $item->getAttribute('id');
+
+            if (strpos($id, 'toc') === 0 && !isset($idMap[$id])) {
+                $idMap[$id] = true;
+                continue;
+            }
+            $newId = 'toc-' . count($idMap);
+            $item->setAttribute('id', $newId);
+            $idMap[$newId] = true;
+
+            $mapHTML .= <<<HTML
+<li class="page-nav-item h1">
+    <a href="#{$newId}" class="limit-text block">
+         <strong>{$item->nodeValue}</strong>
+    </a>
+</li>
+HTML;
+        }
+        return [
+            'content' => $doc->saveHTML(),
+            'map' => $mapHTML,
+        ];
     }
 }

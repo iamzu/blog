@@ -44,6 +44,14 @@
             </form>
         </div>
     </div>
+    @if($articleMap)
+        <div class="widget widget_hot">
+            <h3>导航</h3>
+            <ul>
+                {!! $articleMap !!}
+            </ul>
+        </div>
+    @endif
     <div class="widget widget_hot">
 
         <div style="width: 100%">
@@ -78,6 +86,7 @@
 
         </ul>
     </div>
+
 </aside>
 <script src="{{asset_blog('calendar/js/schedule.js')}}"></script>
 <script>
