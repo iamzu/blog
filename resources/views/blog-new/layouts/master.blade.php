@@ -118,21 +118,24 @@
         </div>
     </div>
 </div>
+<canvas id="mineCanvas"></canvas>
 @yield('scripts')
 <script src="{{asset_blog('js/bootstrap.min.js')}}"></script>
 <script src="{{asset_blog('js/jquery.ias.js')}}"></script>
 <script src="{{asset_blog('js/scripts.js')}}"></script>
-<script src="{{asset('js/vsclick.min.js')}}"></script>
+<script src="{{asset('js/anime.min.js')}}"></script>
+<script src="{{asset('js/canvas.js')}}"></script>
+{{--<script src="{{asset('js/vsclick.min.js')}}"></script>--}}
 <script type="text/javascript" color="51,153,204" opacity='0.7' zIndex="999" count="200"
         src="{{asset('js/canvas-nest.js')}}"></script>
-<script>
-    let drop = new VsClick({
-        dom: 'drop2',
-        timer: 3000,
-        // emoji: ['🍋', '🍌', '🍉', '🍎', '🍒', '🍓', '🌽'],
-        emoji: ['🥝', '🥥', '🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🥭', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥑'],
-        spring: true
-    })
-</script>
+{{--<script>--}}
+{{--    let drop = new VsClick({--}}
+{{--        dom: 'drop2',--}}
+{{--        timer: 3000,--}}
+{{--        // emoji: ['🍋', '🍌', '🍉', '🍎', '🍒', '🍓', '🌽'],--}}
+{{--        emoji: ['🥝', '🥥', '🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🥭', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥑'],--}}
+{{--        spring: true--}}
+{{--    })--}}
+{{--</script>--}}
 </body>
 </html>
