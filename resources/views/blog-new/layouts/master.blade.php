@@ -34,9 +34,19 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#header-navbar" aria-expanded="false"><span class="sr-only"></span> <span
-                            class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-{{--                <h1 class="logo hvr-bounce-in"><a href="" title=""><img src="{{asset_blog('images/logo.png')}}" alt=""></a>--}}
-                <h1 class="logo hvr-bounce-in"><a href="/" title="Blog" style="line-height: 67px">Chia2'S Blog</a>
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+                {{--                <h1 class="logo hvr-bounce-in"><a href="" title=""><img src="{{asset_blog('images/logo.png')}}" alt=""></a>--}}
+                <h1 class="logo hvr-bounce-in">
+                    <a href="/" title="Blog" style="line-height: 67px;display: inline-table;">
+                        <span style="color: #2491F6">C</span>
+                        <span style="color: #F63434">h</span>
+                        <span style="color: #F69534">i</span>
+                        <span style="color: #2491F6">a</span>
+                        <span style="color: #07A280">2</span>
+                        <span style="color: #F63434">'</span>
+                        <span style="color: #2491F6">S</span>
+                        <span style="color: #F63434"> Blog</span>
+                    </a>
                 </h1>
             </div>
             <div class="collapse navbar-collapse" id="header-navbar">
@@ -113,6 +123,8 @@
 <script src="{{asset_blog('js/jquery.ias.js')}}"></script>
 <script src="{{asset_blog('js/scripts.js')}}"></script>
 <script src="{{asset('js/vsclick.min.js')}}"></script>
+<script type="text/javascript" color="51,153,204" opacity='0.7' zIndex="999" count="200"
+        src="{{asset('js/canvas-nest.js')}}"></script>
 <script>
     let drop = new VsClick({
         dom: 'drop2',
