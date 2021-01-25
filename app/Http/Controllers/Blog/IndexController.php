@@ -15,21 +15,21 @@ class IndexController extends Controller
     use CommonActions;
 
     private $storage;
-    private $sidebarArticleList;
+    private $sidebarTags;
+    private $sidebarLinks;
 
     public function __construct()
     {
         $this->storage = Storage::disk(config('admin.upload.disk'));
-        $this->sidebarArticleList = $this->sidebarArticleList();
+        $this->sidebarTags = $this->sidebarTags();
+        $this->sidebarLinks = $this->sidebarLinks();
     }
 
     public function index()
     {
         $rotaryMaps = $this->rotaryMaps();
         $articleList = $this->articleList();
-        $storage = $this->storage;
-        $sidebarTags = $this->sidebarTags();
-        return view('blog-new.index', compact('rotaryMaps', 'articleList', 'storage', 'sidebarTags'));
+        return $this->view('blog-new.index', compact('rotaryMaps', 'articleList'));
     }
 
     public function showPost($id, Request $request)
@@ -44,11 +44,16 @@ class IndexController extends Controller
         if ($tag) {
             $tag = Tag::query()->where('tag', $tag)->firstOrFail();
         }
-        $storage = $this->storage;
-        $sidebarArticleList = $this->sidebarArticleList;
-        $sidebarTags = $this->sidebarTags();
         $articleMap = $map['map'];
-        return view('blog-new.article', compact('post', 'tag', 'storage', 'sidebarTags', 'articleMap'));
+        return $this->view('blog-new.article', compact('post', 'tag', 'articleMap'));
+    }
+
+    private function view($layout, $data)
+    {
+        $sidebarTags = $this->sidebarTags;
+        $sidebarLinks = $this->sidebarLinks;
+        $storage = $this->storage;
+        return view($layout, array_merge($data, compact('sidebarTags', 'sidebarLinks', 'storage')));
     }
 
 }

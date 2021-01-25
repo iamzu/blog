@@ -151,11 +151,9 @@
     <div class="widget widget_hot">
         <h3><i class="fa fa-link" style="margin-right: 10px;"></i>友情链接</h3>
         <div style="padding: 10px">
-            <a class="friend" href="">友情链接1</a>
-            <a class="friend" href="">友情链接1</a>
-            <a class="friend" href="">友情链接1</a>
-            <a class="friend" href="">友情链接1</a>
-            <a class="friend" href="">友情链接1</a>
+            @foreach($sidebarLinks as $item)
+                <a class="friend" href="{{$item['url']}}" target="_blank">{{$item['name']}}</a>
+            @endforeach
         </div>
     </div>
 

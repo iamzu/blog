@@ -21,4 +21,6 @@ Route::group([
     $router->resource('posts', 'PostController');
     //标签
     $router->resource('tags', 'TagController');
+    //友情链接
+    $router->resource('links', 'LinkController');
 });

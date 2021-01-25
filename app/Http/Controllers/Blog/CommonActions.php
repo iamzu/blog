@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\Blog;
 
 
+use App\Models\Link;
 use App\Models\Post;
 use App\Models\Rotation;
 use App\Models\Tag;
@@ -17,7 +18,7 @@ trait CommonActions
      */
     public function rotaryMaps()
     {
-        return Rotation::query()->where('status',Rotation::ENABLE)->get();
+        return Rotation::query()->where('status', Rotation::ENABLE)->get();
     }
 
     /**
@@ -32,6 +33,7 @@ trait CommonActions
             ->orderBy('published_at', 'desc')
             ->simplePaginate(config('blog.posts_per_page'));
     }
+
     /**
      * Author: chia2-y
      * Email: admin@chia2.com
@@ -55,5 +57,16 @@ trait CommonActions
     {
         return Tag::query()
             ->orderBy('id', 'desc')->get()->toArray();
+    }
+
+    /**
+     * Author: chia2-y
+     * Email: admin@chia2.com
+     */
+    public function sidebarLinks(): array
+    {
+        return Link::query()
+            ->where('status', 1)
+            ->orderBy('index', 'desc')->get()->toArray();
     }
 }
