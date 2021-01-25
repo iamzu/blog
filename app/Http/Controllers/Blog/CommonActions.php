@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Models\Post;
 use App\Models\Rotation;
+use App\Models\Tag;
 use Carbon\Carbon;
 
 trait CommonActions
@@ -44,5 +45,15 @@ trait CommonActions
             ])
             ->orderBy('published_at', 'desc')
             ->limit(5)->get()->toArray();
+    }
+
+    /**
+     * Author: chia2-y
+     * Email: admin@chia2.com
+     */
+    public function sidebarTags(): array
+    {
+        return Tag::query()
+            ->orderBy('id', 'desc')->get()->toArray();
     }
 }

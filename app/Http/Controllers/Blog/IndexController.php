@@ -28,8 +28,8 @@ class IndexController extends Controller
         $rotaryMaps = $this->rotaryMaps();
         $articleList = $this->articleList();
         $storage = $this->storage;
-        $sidebarArticleList = $this->sidebarArticleList;
-        return view('blog-new.index', compact('rotaryMaps', 'articleList', 'storage', 'sidebarArticleList'));
+        $sidebarTags = $this->sidebarTags();
+        return view('blog-new.index', compact('rotaryMaps', 'articleList', 'storage', 'sidebarTags'));
     }
 
     public function showPost($id, Request $request)
@@ -46,7 +46,9 @@ class IndexController extends Controller
         }
         $storage = $this->storage;
         $sidebarArticleList = $this->sidebarArticleList;
+        $sidebarTags = $this->sidebarTags();
         $articleMap = $map['map'];
-        return view('blog-new.article', compact('post', 'tag', 'storage', 'sidebarArticleList','articleMap'));
+        return view('blog-new.article', compact('post', 'tag', 'storage', 'sidebarTags', 'articleMap'));
     }
+
 }

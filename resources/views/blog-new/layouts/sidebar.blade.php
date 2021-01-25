@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="{{asset_blog('calendar/css/style.css')}}">
 <link rel="stylesheet" href="{{asset('flipclock/css/flipclock.css')}}">
+@php($isPost = strpos(request()->path(),'post') !== false)
 <style>
     .calendar {
         /*border-bottom:unset!important;*/
@@ -47,6 +48,40 @@
     .flip-clock-wrapper ul {
         width: 40px !important;
     }
+
+    .navigation li a {
+        padding: 10px;
+        border-bottom: unset;
+    }
+
+    .navigation li a:hover {
+        color: #2491f6;
+        -webkit-transform: unset;
+        transform: unset;
+        -webkit-transition-timing-function: unset;
+        transition-timing-function: unset;
+    }
+
+    .navigation /deep/ .h1, .h2, .h3 {
+        margin: unset !important;
+    }
+
+    .navigation > ul {
+        list-style: unset !important;
+    }
+
+    .friend {
+        padding: 2px 6px;
+        background-color: rgba(36, 145, 246, .08);
+        margin: 0 5px 5px 0;
+        display: inline-block;
+    }
+
+    .friend:hover {
+        background-color: rgba(36, 145, 246);
+        color: #fff;
+    }
+
 </style>
 <aside class="sidebar">
     <div class="fixed">
@@ -61,47 +96,67 @@
             </form>
         </div>
     </div>
-    {{--    @if($articleMap ?? null)--}}
-    {{--        <div class="widget widget_hot">--}}
-    {{--            <h3>导航</h3>--}}
-    {{--            <ul>--}}
-    {{--                {!! $articleMap !!}--}}
-    {{--            </ul>--}}
-    {{--        </div>--}}
-    {{--    @endif--}}
-
     <div class="widget widget_hot">
+        <div class="clock"></div>
+    </div>
+    <div class="widget widget_hot" style="display: {{$isPost?'none':'block'}}">
         <div style="width: 100%">
             <h3 class="calendar">时间不是流逝的，流逝的是我们</h3>
         </div>
         <div id='schedule-box' class="boxshaw"></div>
     </div>
+
+    {{--    @if(($articleMap ?? null) && $isPost)--}}
+    {{--        <div class="fixed">--}}
+    {{--            <div class="widget widget_hot navigation">--}}
+    {{--                <h3>目录</h3>--}}
+    {{--                <ul>--}}
+    {{--                    {!! $articleMap !!}--}}
+    {{--                </ul>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    @endif--}}
+    {{--    <div class="widget widget_hot">--}}
+    {{--        <h3>热门文章</h3>--}}
+    {{--        <ul>--}}
+    {{--            @foreach($sidebarArticleList as $item)--}}
+    {{--                <li>--}}
+    {{--                    <a href="{{ route('blog.detail',['id' => $item['id']]) }}">--}}
+    {{--                    <span class="thumbnail">--}}
+    {{--                        <img class="thumb"--}}
+    {{--                             data-original="{{$storage->url($item['page_image'])}}"--}}
+    {{--                             src="{{$storage->url($item['page_image'])}}"--}}
+    {{--                             alt="">--}}
+    {{--                    </span>--}}
+    {{--                        <span class="text">{{$item['title']}}</span>--}}
+    {{--                        <span class="muted">--}}
+    {{--                        <i class="glyphicon glyphicon-time"></i> {{ $item['published_at'] }}--}}
+    {{--                    </span><span class="muted">--}}
+    {{--                        <i class="glyphicon glyphicon-eye-open"></i> 0--}}
+    {{--                    </span>--}}
+    {{--                    </a>--}}
+    {{--                </li>--}}
+    {{--            @endforeach--}}
+
+    {{--        </ul>--}}
+    {{--    </div>--}}
     <div class="widget widget_hot">
-        <div class="clock"></div>
+        <h3><i class="fa fa-tags" style="margin-right: 10px;"></i>标签</h3>
+        <div style="padding: 10px">
+            @foreach($sidebarTags as $item)
+                <a class="friend" href="">{{$item['tag']}}</a>
+            @endforeach
+        </div>
     </div>
     <div class="widget widget_hot">
-        <h3>热门文章</h3>
-        <ul>
-            @foreach($sidebarArticleList as $item)
-                <li>
-                    <a href="{{ route('blog.detail',['id' => $item['id']]) }}">
-                    <span class="thumbnail">
-                        <img class="thumb"
-                             data-original="{{$storage->url($item['page_image'])}}"
-                             src="{{$storage->url($item['page_image'])}}"
-                             alt="">
-                    </span>
-                        <span class="text">{{$item['title']}}</span>
-                        <span class="muted">
-                        <i class="glyphicon glyphicon-time"></i> {{ $item['published_at'] }}
-                    </span><span class="muted">
-                        <i class="glyphicon glyphicon-eye-open"></i> 0
-                    </span>
-                    </a>
-                </li>
-            @endforeach
-
-        </ul>
+        <h3><i class="fa fa-link" style="margin-right: 10px;"></i>友情链接</h3>
+        <div style="padding: 10px">
+            <a class="friend" href="">友情链接1</a>
+            <a class="friend" href="">友情链接1</a>
+            <a class="friend" href="">友情链接1</a>
+            <a class="friend" href="">友情链接1</a>
+            <a class="friend" href="">友情链接1</a>
+        </div>
     </div>
 
 </aside>
