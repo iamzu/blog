@@ -106,11 +106,11 @@
     </script>
     <script>
         var gitalk = new Gitalk({
-            clientID: 'a424288f7d4269291daa',
-            clientSecret: '92f51da063179db921dfa1f1096c7413e0443005 ',
-            repo: 'ChiaBlog',
+            clientID: '88debbb87ea8d82e7bd0',
+            clientSecret: '1989bc865afd40e9d8043c1a71a0afbdfd1bedf6',
+            repo: 'blog-gitalk',
             owner: 'Chia2-y',
-            admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
+            admin: ['Chia2-y'],
             id: location.pathname,      // Ensure uniqueness and length less than 50
             distractionFreeMode: false  // Facebook-like distraction free mode
         })
