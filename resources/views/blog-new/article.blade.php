@@ -56,7 +56,7 @@
                 <a href="" rel="tag">{{$tag->tag}}</a>
             @endforeach
         </div>
-{{--        <hr>--}}
+        <hr>
         <div id="post-comment">
             <div class="comment-head">
                 <div class="comment-headline"><i class="fa fa-comments fa-fw"></i><span> 评论</span></div>
