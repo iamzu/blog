@@ -20,7 +20,8 @@
             color: #abb2bf !important;
             background: #282c34 !important;
         }
-        .article-content pre{
+
+        .article-content pre {
             padding: unset;
         }
     </style>
@@ -55,7 +56,11 @@
                 <a href="" rel="tag">{{$tag->tag}}</a>
             @endforeach
         </div>
-        <div>
+        <hr>
+        <div id="post-comment">
+            <div class="comment-head">
+                <div class="comment-headline"><i class="fa fa-comments fa-fw"></i><span> 评论</span></div>
+            </div>
             <div id="gitalk-container"></div>
         </div>
         {{--       评论--}}
@@ -106,8 +111,8 @@
     </script>
     <script>
         var gitalk = new Gitalk({
-            clientID: '88debbb87ea8d82e7bd0',
-            clientSecret: '1989bc865afd40e9d8043c1a71a0afbdfd1bedf6',
+            clientID: '{{env('GITHUB_GITALK_CLIENTID','88debbb87ea8d82e7bd0')}}',
+            clientSecret: '{{env('GITHUB_GITALK_CLIENTSECRET','1989bc865afd40e9d8043c1a71a0afbdfd1bedf6')}}',
             repo: 'blog-gitalk',
             owner: 'Chia2-y',
             admin: ['Chia2-y'],

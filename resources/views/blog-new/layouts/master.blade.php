@@ -26,6 +26,10 @@
     <![endif]-->
     @yield('styles')
     <style>
+        :root {
+            --hr-border: #2491F6;
+            --hr-before-color: #2491F6;
+        }
         ul.fm-ul.fm-slide-in ul.fm-ul-component li.fm-li {
             box-sizing: content-box;
         }
