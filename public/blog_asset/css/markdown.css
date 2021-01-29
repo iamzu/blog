@@ -594,7 +594,7 @@
     border:unset;
 }
 
-pre:before {
+.article-content pre:before {
     content: '';
     display: block;
     /*background: #282c34 url('/blog_asset/images/point.png') 10px 10px no-repeat;*/
