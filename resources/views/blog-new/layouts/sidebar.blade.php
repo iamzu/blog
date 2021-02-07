@@ -170,16 +170,34 @@
 
     function tagColor(id) {
         let arr = [
-            '#46c47c',
-            '#bc99c4',
-            '#f9bb3c',
-            '#e8583d',
-            '#6fa3ef'
+            'rgba(111, 163, 239)',
+            'rgba(188, 153, 196)',
+            'rgba(249, 187, 60)',
+            'rgba(232, 88, 61)',
+            'rgba(70, 196, 124)',
         ];
         let index = id % arr.length;
         $('.tag-' + id).css('background', arr[index]);
         $('.tag-' + id).css('color', '#fff');
     }
+
+    // function tagColor(id) {
+    //     let arr = [
+    //         'rgba(111, 163, 239',
+    //         'rgba(188, 153, 196',
+    //         'rgba(249, 187, 60',
+    //         'rgba(232, 88, 61',
+    //         'rgba(70, 196, 124',
+    //     ];
+    //     let index = id % arr.length;
+    //     $('.tag-' + id).css('background', arr[index] + ',0.5)');
+    //     $('.tag-' + id).css('color', '#fff');
+    //     $('.tag-' + id).hover(function () {
+    //         $(this).css('background', arr[index] + ')')
+    //     }, function () {
+    //         $(this).css('background', arr[index] + ',0.5)');
+    //     });
+    // }
 
     var mySchedule = new Schedule({
         el: '#schedule-box',	//容器元素
