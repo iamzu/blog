@@ -168,6 +168,10 @@
         })
     });
 
+    function randomSort(a, b) {
+        return Math.random() > .5 ? -1 : 1;
+    }
+
     function tagColor(id) {
         let arr = [
             'rgba(111, 163, 239)',
@@ -175,7 +179,12 @@
             'rgba(249, 187, 60)',
             'rgba(232, 88, 61)',
             'rgba(70, 196, 124)',
+            // '#2491F6',
+            // '#F63434',
+            // '#F69534',
+            // '#07A280',
         ];
+        arr.sort(randomSort);
         let index = id % arr.length;
         $('.tag-' + id).css('background', arr[index]);
         $('.tag-' + id).css('color', '#fff');
