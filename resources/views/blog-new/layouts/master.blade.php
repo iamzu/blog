@@ -135,52 +135,37 @@
 <script src="{{asset_blog('js/scripts.js')}}"></script>
 <script src="{{asset('js/anime.min.js')}}"></script>
 <script src="{{asset('js/canvas.js')}}"></script>
-<script src="{{asset('floatButton/js/float-module.min.js')}}"></script>
-{{--<script src="{{asset('js/vsclick.min.js')}}"></script>--}}
-{{--<script>--}}
-{{--    let drop = new VsClick({--}}
-{{--        dom: 'drop2',--}}
-{{--        timer: 3000,--}}
-{{--        // emoji: ['🍋', '🍌', '🍉', '🍎', '🍒', '🍓', '🌽'],--}}
-{{--        emoji: ['🥝', '🥥', '🍇', '🍈', '🍉', '🍊', '🍋', '🍌', '🍍', '🥭', '🍎', '🍏', '🍐', '🍑', '🍒', '🍓', '🥑'],--}}
-{{--        spring: true--}}
-{{--    })--}}
-{{--</script>--}}
+{{--<script src="{{asset('floatButton/js/float-module.min.js')}}"></script>--}}
 <script type="text/javascript">
-    var fm = new FloatModule({
-        animation:'slide-in',
-        icon_css_path: null,
-        btn_config: [{
-            icon: 'fa fa-th-large',
-            theme_color: '#2491F6',
-        }, {
-            icon: 'fa fa-envelope-o',
-            title: '私信博主',
-            theme_color: '#F63434',
-            click: () => {
-                location.href = 'http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=8pOWn5ucspGam5PA3JGdnw'
-            }
-        }, {
-            icon: 'fa fa-qq',
-            title: '联系博主',
-            theme_color: '#2491F6',
-            click: () => {
-                location.href = 'http://wpa.qq.com/msgrd?V=1&uin=210849049'
-            }
-        }, {
-            icon: 'fa fa-github',
-            title: 'Github',
-            theme_color: '#2491F6',
-            click: () => {
-                location.href = 'https://github.com/Chia2-y'
-            }
-        }]
-    });
-
-    function fnTest() {
-        alert("hello world");
-    }
-
+    // var fm = new FloatModule({
+    //     animation:'slide-in',
+    //     icon_css_path: null,
+    //     btn_config: [{
+    //         icon: 'fa fa-th-large',
+    //         theme_color: '#2491F6',
+    //     }, {
+    //         icon: 'fa fa-envelope-o',
+    //         title: '私信博主',
+    //         theme_color: '#F63434',
+    //         click: () => {
+    //             location.href = 'http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=8pOWn5ucspGam5PA3JGdnw'
+    //         }
+    //     }, {
+    //         icon: 'fa fa-qq',
+    //         title: '联系博主',
+    //         theme_color: '#2491F6',
+    //         click: () => {
+    //             location.href = 'http://wpa.qq.com/msgrd?V=1&uin=210849049'
+    //         }
+    //     }, {
+    //         icon: 'fa fa-github',
+    //         title: 'Github',
+    //         theme_color: '#2491F6',
+    //         click: () => {
+    //             location.href = 'https://github.com/Chia2-y'
+    //         }
+    //     }]
+    // });
 </script>
 </body>
 </html>

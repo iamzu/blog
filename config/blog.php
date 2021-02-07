@@ -2,8 +2,8 @@
 
 return [
     'name' => "Chia2",
-    'title' => "Chia2 BLOG",
-    'subtitle' => 'http://blog.chia2.com',
+    'title' => "Chia2's Blog",
+    'subtitle' => 'https://blog.chia2.com',
     'description' => 'Share',
     'author' => 'Chia2',
     'page_image' => 'home-bg.jpg',

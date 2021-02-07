@@ -144,7 +144,7 @@
         <h3><i class="fa fa-tags" style="margin-right: 10px;"></i>标签</h3>
         <div style="padding: 10px">
             @foreach($sidebarTags as $item)
-                <a class="friend" href="">{{$item['tag']}}</a>
+                <a class="friend tags tag-{{$item['id']}}" id="{{$item['id']}}" href="">#{{$item['tag']}}</a>
             @endforeach
         </div>
     </div>
@@ -161,6 +161,26 @@
 <script src="{{asset_blog('calendar/js/schedule.js')}}"></script>
 <script src="{{asset('flipclock/js/flipclock.min.js')}}"></script>
 <script>
+    $(function () {
+        $('.tags').each(function () {
+            console.log($(this).attr('id'));
+            tagColor($(this).attr('id'));
+        })
+    });
+
+    function tagColor(id) {
+        let arr = [
+            '#46c47c',
+            '#bc99c4',
+            '#f9bb3c',
+            '#e8583d',
+            '#6fa3ef'
+        ];
+        let index = id % arr.length;
+        $('.tag-' + id).css('background', arr[index]);
+        $('.tag-' + id).css('color', '#fff');
+    }
+
     var mySchedule = new Schedule({
         el: '#schedule-box',	//容器元素
         date: '{{date('Y-m-d')}}',		//当前日期
