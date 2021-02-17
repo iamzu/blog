@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\UploadController;
+//use App\Http\Controllers\Admin\PostController;
+//use App\Http\Controllers\Admin\TagController;
+//use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Blog\IndexController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\ContactController;
+//use App\Http\Controllers\BlogController;
+//use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,15 +51,18 @@ use Illuminate\Support\Facades\Route;
 //Route::get('contact', [ContactController::class, 'showForm']);
 //Route::post('contact', [ContactController::class, 'sendContactInfo']);
 //Route::get('rss', [BlogController::class, 'rss']);
-
+Route::group(['domain' => 'manage.chia2.coms'], function () {
+    Route::get('{all}', function () {
+        return Redirect::away('https://manage.chia2.com/manage', 301);
+    })->where('all', '.*');
+});
 //博客
-Route::domain('blog.chia2.com')->group(function(Route $route){
+Route::domain('127.0.0.1:8000')->group(function(Route $route){
 //    Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
+    Route::get('/', [IndexController::class, 'index'])->name('blog.index');
+    Route::get('/post/{id}', [IndexController::class, 'showPost'])->name('blog.detail');
 
-    $route->get('/', [IndexController::class, 'index'])->name('blog.index');
-    $route->get('/post/{id}', [IndexController::class, 'showPost'])->name('blog.detail');
-
-    $route->get('/upgrade-browser.html', function(){
+    Route::get('/upgrade-browser.html', function(){
         return view('blog.upgrade-browser');
     });
 });

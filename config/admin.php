@@ -57,7 +57,6 @@ return [
     */
     'route' => [
 
-        'domain' => env('ADMIN_ROUTE_DOMAIN', 'manage.chia2.com'),
         'prefix' => env('ADMIN_ROUTE_PREFIX', 'manage'),
 
         'namespace' => 'App\\Admin\\Controllers',
