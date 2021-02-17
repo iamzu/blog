@@ -57,13 +57,13 @@ Route::group(['domain' => 'manage.chia2.com'], function () {
     })->where('all', '.*');
 });
 //博客
-Route::domain('127.0.0.1:8000')->group(function(Route $route){
-//    Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
+//Route::domain('127.0.0.1:8000')->group(function(Route $route){
+////    Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
     Route::get('/', [IndexController::class, 'index'])->name('blog.index');
     Route::get('/post/{id}', [IndexController::class, 'showPost'])->name('blog.detail');
 
     Route::get('/upgrade-browser.html', function(){
         return view('blog.upgrade-browser');
     });
-});
+//});
 
