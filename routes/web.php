@@ -50,13 +50,16 @@ use Illuminate\Support\Facades\Route;
 //Route::get('contact', [ContactController::class, 'showForm']);
 //Route::post('contact', [ContactController::class, 'sendContactInfo']);
 //Route::get('rss', [BlogController::class, 'rss']);
-Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
 
 //博客
+Route::domain('blog.chia2.com')->group(function(Route $route){
+//    Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
 
-Route::get('/', [IndexController::class, 'index'])->name('blog.index');
-Route::get('/post/{id}', [IndexController::class, 'showPost'])->name('blog.detail');
+    $route->get('/', [IndexController::class, 'index'])->name('blog.index');
+    $route->get('/post/{id}', [IndexController::class, 'showPost'])->name('blog.detail');
 
-Route::get('/upgrade-browser.html', function(){
-    return view('blog.upgrade-browser');
+    $route->get('/upgrade-browser.html', function(){
+        return view('blog.upgrade-browser');
+    });
 });
+
