@@ -51,7 +51,7 @@ use Illuminate\Support\Facades\Redirect;
 //Route::get('contact', [ContactController::class, 'showForm']);
 //Route::post('contact', [ContactController::class, 'sendContactInfo']);
 //Route::get('rss', [BlogController::class, 'rss']);
-Route::group(['domain' => 'manage.chia2.coms'], function () {
+Route::group(['domain' => 'manage.chia2.com'], function () {
     Route::get('{all}', function () {
         return Redirect::away('https://manage.chia2.com/manage', 301);
     })->where('all', '.*');
