@@ -42,6 +42,9 @@ HTML;
                 $filter->equal('id');
                 $filter->in('tags.tag_id','标签')->multipleSelect(Post::tagOptions());
             });
+            $grid->actions(function (Grid\Displayers\Actions $actions) {
+                $actions->append('<a href="'.route('blog.detail',['id' => $this->id]).'" title="预览" target="_blank"><i class="fa fa-file-text-o"></i></a>');
+            });
         });
     }
 
