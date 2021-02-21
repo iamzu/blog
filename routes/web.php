@@ -58,7 +58,7 @@ Route::group(['domain' => 'manage.chia2.com'], function () {
     })->where('all', '.*');
 });
 //博客
-Route::group(['domain' => '127.0.0.1'], function () {
+Route::group(['domain' => 'blog.chia2.com'], function () {
 ////    Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
     Route::get('/', [IndexController::class, 'index'])->name('blog.index');
     Route::get('/post/{id}', [IndexController::class, 'showPost'])->name('blog.detail');
