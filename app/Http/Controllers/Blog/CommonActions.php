@@ -24,6 +24,7 @@ trait CommonActions
     /**
      * Author: chia2-y
      * Email: admin@chia2.com
+     * @return \Illuminate\Contracts\Pagination\Paginator
      */
     public function articleList(): \Illuminate\Contracts\Pagination\Paginator
     {
@@ -31,6 +32,21 @@ trait CommonActions
 //            ->where('published_at', '<=', Carbon::now())
             ->where('is_draft', 0)
 //            ->orderBy('published_at', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->simplePaginate(config('blog.posts_per_page'));
+    }
+
+    /**
+     * Author: chia2-y
+     * Email: admin@chia2.com
+     * @param $ids array
+     * @return \Illuminate\Contracts\Pagination\Paginator
+     */
+    public function tagArticleList($ids): \Illuminate\Contracts\Pagination\Paginator
+    {
+        return Post::query()->with('tags')
+            ->where('is_draft', 0)
+            ->whereIn('id', $ids)
             ->orderBy('created_at', 'desc')
             ->simplePaginate(config('blog.posts_per_page'));
     }

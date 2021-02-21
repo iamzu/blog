@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Blog;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\PostTagPivot;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -54,6 +55,26 @@ class IndexController extends Controller
         $sidebarLinks = $this->sidebarLinks;
         $storage = $this->storage;
         return view($layout, array_merge($data, compact('sidebarTags', 'sidebarLinks', 'storage')));
+    }
+
+    public function showTag($name)
+    {
+        $tag = Tag::query()->where('tag', $name)->first();
+        if ($tag) {
+            $tag = $tag->toArray();
+            if (mb_strlen($tag['subtitle']) < 8) {
+                $tag['showNum'] = true;
+            } else {
+                $tag['showNum'] = false;
+            }
+        } else {
+            abort(404);
+        }
+        //tag post
+        $ids = PostTagPivot::query()->where('tag_id', $tag['id'])->pluck('post_id')->toArray();
+        $articleList = $this->tagArticleList($ids);
+        $tag['count'] = $articleList->count();
+        return $this->view('blog-new.tag', compact('tag', 'articleList'));
     }
 
 }

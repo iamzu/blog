@@ -144,7 +144,7 @@
         <h3><i class="fa fa-tags" style="margin-right: 10px;"></i>标签</h3>
         <div style="padding: 10px">
             @foreach($sidebarTags as $item)
-                <a class="friend tags tag-{{$item['id']}}" id="{{$item['id']}}" href="">#{{$item['tag']}}</a>
+                <a class="friend tags tag-{{$item['id']}}" id="{{$item['id']}}" href="{{ route('blog.tag',['name' => $item['tag']]) }}">#{{$item['tag']}}</a>
             @endforeach
         </div>
     </div>

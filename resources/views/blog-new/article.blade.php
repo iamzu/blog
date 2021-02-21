@@ -12,7 +12,8 @@
         .article-content img {
             pointer-events: none
         }
-        .gt-comments-null{
+
+        .gt-comments-null {
             display: none;
         }
 
@@ -30,19 +31,24 @@
     </style>
     <div class="content">
         <header class="article-header">
-            <h1 class="article-title"><a href="article.html">{{$post->title}}</a></h1>
+            <h1 class="article-title"><a href="javascript:void(0)">{{$post->title}}</a></h1>
             <div class="article-meta">
                 <span class="item article-meta-time">
           <time class="time" data-toggle="tooltip" data-placement="bottom" title="时间：2016-1-4 10:29:39"><i
-                  class="glyphicon glyphicon-time"></i> 2016-1-4 10:29:39</time>
+                  class="glyphicon glyphicon-time"></i>{{$post['ui_created_at']}}</time>
           </span>
-                <span
-                    class="item article-meta-category" data-toggle="tooltip" data-placement="bottom"
-                    title="分类：{{$post->tags[0]->tag}}"><i class="glyphicon glyphicon-list"></i> <a href="program"
-                                                                                                   title="">{{$post->tags[0]->tag}}</a></span>
-                <span
-                    class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="查看：120"><i
-                        class="glyphicon glyphicon-eye-open"></i> 共120人围观</span>
+                <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom"
+                      title="分类：{{$post->tags[0]->tag}}">
+                    <i class="glyphicon glyphicon-list"></i>
+                    <a href="program" title="{{$post->tags[0]->subtitle}}">
+                        {{$post->tags[0]->tag}}
+                    </a>
+                </span>
+                <span class="item article-meta-views" data-toggle="tooltip" data-placement="bottom" title="查看：120">
+                    <i class="glyphicon glyphicon-eye-open"></i>
+                    共120人围观
+                </span>
+            </div>
         </header>
         <article class="article-content markdown-body">
             {{--            <p><img data-original="{{$storage->url($post->page_image)}}"--}}
@@ -59,7 +65,7 @@
                 <a href="" rel="tag">{{$tag->tag}}</a>
             @endforeach
         </div>
-{{--        <hr>--}}
+        {{--        <hr>--}}
         <div id="post-comment">
             <div class="comment-head">
                 <div class="comment-headline"><i class="fa fa-comments fa-fw"></i><span> 评论</span></div>

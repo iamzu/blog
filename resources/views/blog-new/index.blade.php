@@ -17,7 +17,7 @@
                 </header>
                 <p class="note"> {{ $item['subtitle'] }}</p>
                 <p class="meta">
-                    <time class="time"><i class="glyphicon glyphicon-time"></i>{{ $item['published_at'] }}
+                    <time class="time"><i class="glyphicon glyphicon-time"></i>{{ $item['ui_created_at'] }}
                     </time>
                     <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共0人围观</span> <a
                             class="comment"

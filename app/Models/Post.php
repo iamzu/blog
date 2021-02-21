@@ -19,6 +19,10 @@ class Post extends Model
 
     protected $dates = ['published_at'];
 
+    protected $appends = [
+        'ui_created_at'
+    ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      * User: ZY
@@ -203,5 +207,10 @@ HTML;
             'content' => $doc->saveHTML(),
             'map' => $mapHTML,
         ];
+    }
+
+    public function getUiCreatedAtAttribute()
+    {
+        return date('Y-m-d',strtotime($this->created_at));
     }
 }

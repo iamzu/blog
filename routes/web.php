@@ -5,6 +5,7 @@
 //use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Blog\IndexController;
+
 //use App\Http\Controllers\BlogController;
 //use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
@@ -57,12 +58,13 @@ Route::group(['domain' => 'manage.chia2.com'], function () {
     })->where('all', '.*');
 });
 //博客
-Route::group(['domain' => 'blog.chia2.com'], function () {
+Route::group(['domain' => '127.0.0.1'], function () {
 ////    Route::get('sitemap.xml', [BlogController::class, 'siteMap']);
     Route::get('/', [IndexController::class, 'index'])->name('blog.index');
     Route::get('/post/{id}', [IndexController::class, 'showPost'])->name('blog.detail');
+    Route::get('/tag/{name}', [IndexController::class, 'showTag'])->name('blog.tag');
 
-    Route::get('/upgrade-browser.html', function(){
+    Route::get('/upgrade-browser.html', function () {
         return view('blog.upgrade-browser');
     });
 });
