@@ -28,9 +28,10 @@ trait CommonActions
     public function articleList(): \Illuminate\Contracts\Pagination\Paginator
     {
         return Post::query()->with('tags')
-            ->where('published_at', '<=', Carbon::now())
+//            ->where('published_at', '<=', Carbon::now())
             ->where('is_draft', 0)
-            ->orderBy('published_at', 'desc')
+//            ->orderBy('published_at', 'desc')
+            ->orderBy('created_at', 'desc')
             ->simplePaginate(config('blog.posts_per_page'));
     }
 
