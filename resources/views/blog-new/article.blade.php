@@ -12,6 +12,9 @@
         .article-content img {
             pointer-events: none
         }
+        .gt-comments-null{
+            display: none;
+        }
 
         .hljs {
             display: block !important;
