@@ -49,15 +49,18 @@ hr:before {
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
 }
+
 #post-comment .comment-head {
     margin-bottom: 1rem;
 }
+
 #post-comment .comment-head .comment-headline {
     display: inline-block;
     vertical-align: middle;
     font-weight: 700;
     font-size: 1.43em;
 }
+
 #mineCanvas {
     position: fixed;
     top: 0;
@@ -68,12 +71,11 @@ hr:before {
 
 body {
     cursor: url(/cursor/Arrow.cur), default;
-
 }
 
 html, body {
     color: #444;
-    background-color: #f6f6f6;
+    /*background-color: #f6f6f6;*/
     overflow-x: hidden;
 }
 

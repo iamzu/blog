@@ -29,6 +29,8 @@
     <script src="{{asset_blog('js/html5shiv.min.js')}}" type="text/javascript"></script>
     <script src="{{asset_blog('js/respond.min.js')}}" type="text/javascript"></script>
     <script src="{{asset_blog('js/selectivizr-min.js')}}" type="text/javascript"></script>
+<!--    <link rel="stylesheet" type="text/css" href="{{asset('quietflow/css/index.css')}}">-->
+{{--    <link rel="stylesheet" type="text/css" href="{{asset('quietflow/css/prism.css')}}">--}}
     <![endif]-->
     <!--[if lt IE 9]>
     <script>window.location.href = 'upgrade-browser.html';</script>
@@ -143,43 +145,30 @@
 <canvas id="mineCanvas"></canvas>
 @yield('scripts')
 <script src="{{asset_blog('js/bootstrap.min.js')}}"></script>
-<script src="{{asset_blog('js/jquery.ias.js')}}"></script>
+{{--<script src="{{asset_blog('js/jquery.ias.js')}}"></script>--}}
 <script src="{{asset_blog('js/scripts.js')}}"></script>
 <script src="{{asset('js/anime.min.js')}}"></script>
 <script src="{{asset('js/canvas.js')}}"></script>
-{{--<script src="{{asset('floatButton/js/float-module.min.js')}}"></script>--}}
+{{--<script src="{{asset('quietflow/js/quietflow.min.js')}}"></script>--}}
 <script type="text/javascript">
-    // var fm = new FloatModule({
-    //     animation:'slide-in',
-    //     icon_css_path: null,
-    //     btn_config: [{
-    //         icon: 'fa fa-th-large',
-    //         theme_color: '#2491F6',
-    //     }, {
-    //         icon: 'fa fa-envelope-o',
-    //         title: '私信博主',
-    //         theme_color: '#F63434',
-    //         click: () => {
-    //             location.href = 'http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=8pOWn5ucspGam5PA3JGdnw'
-    //         }
-    //     }, {
-    //         icon: 'fa fa-qq',
-    //         title: '联系博主',
-    //         theme_color: '#2491F6',
-    //         click: () => {
-    //             location.href = 'http://wpa.qq.com/msgrd?V=1&uin=210849049'
-    //         }
-    //     }, {
-    //         icon: 'fa fa-github',
-    //         title: 'Github',
-    //         theme_color: '#2491F6',
-    //         click: () => {
-    //             location.href = 'https://github.com/Chia2-y'
-    //         }
-    //     }]
-    // });
-</script>
-
+    /**
+     * maxRadius 可以指定一个圆的最大随机半径。默认设置为40。
+     * bounceSpeed 圆周运动的速度。默认设置为50
+     * bounceBallCount 圈数。默认设置为50
+     * transparent 布尔值使圆具有50％的不透明度。默认设置为true。
+     */
+    // $("body").quietflow({
+    //     theme : "bouncingBalls",
+    //     maxRadius:40,
+    //     z_index : -1,
+    //     specificColors : [
+    //         'rgba(111, 163, 239)',
+    //         'rgba(188, 153, 196)',
+    //         'rgba(249, 187, 60)',
+    //         'rgba(232, 88, 61)',
+    //         'rgba(70, 196, 124)',
+    //     ]
+    // })
 </script>
 </body>
 </html>
