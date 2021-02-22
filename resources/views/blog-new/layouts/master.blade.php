@@ -1,5 +1,14 @@
 <!doctype html>
 <html lang="zh-CN">
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?9f248526132e4001667800fed66baa31";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 <head>
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
@@ -169,14 +178,6 @@
     //         }
     //     }]
     // });
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?9f248526132e4001667800fed66baa31";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
 </script>
 
 </script>
