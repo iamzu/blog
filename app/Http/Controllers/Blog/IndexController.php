@@ -59,7 +59,7 @@ class IndexController extends Controller
 
     public function showTag($name)
     {
-        $tag = Tag::query()->where('tag', $name)->first();
+        $tag = Tag::query()->where('tag', $name)->firstOrFail();
         if ($tag) {
             $tag = $tag->toArray();
             if (mb_strlen($tag['subtitle']) < 8) {
