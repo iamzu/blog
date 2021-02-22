@@ -26,10 +26,13 @@ class IndexController extends Controller
         $this->sidebarLinks = $this->sidebarLinks();
     }
 
-    public function index()
+    public function index($page = 1)
     {
         $rotaryMaps = $this->rotaryMaps();
-        $articleList = $this->articleList();
+        $articleList = $this->articleList($page);
+        if ($articleList->lastpage() < $page) {
+            abort(404);
+        }
         return $this->view('blog-new.index', compact('rotaryMaps', 'articleList'));
     }
 
@@ -57,23 +60,23 @@ class IndexController extends Controller
         return view($layout, array_merge($data, compact('sidebarTags', 'sidebarLinks', 'storage')));
     }
 
-    public function showTag($name)
+    public function showTag($name, $page = 1)
     {
         $tag = Tag::query()->where('tag', $name)->firstOrFail();
-        if ($tag) {
-            $tag = $tag->toArray();
-            if (mb_strlen($tag['subtitle']) < 8) {
-                $tag['showNum'] = true;
-            } else {
-                $tag['showNum'] = false;
-            }
+
+        $tag = $tag->toArray();
+        if (mb_strlen($tag['subtitle']) < 8) {
+            $tag['showNum'] = true;
         } else {
-            abort(404);
+            $tag['showNum'] = false;
         }
         //tag post
         $ids = PostTagPivot::query()->where('tag_id', $tag['id'])->pluck('post_id')->toArray();
-        $articleList = $this->tagArticleList($ids);
-        $tag['count'] = $articleList->count();
+        $articleList = $this->tagArticleList($ids, $page);
+        if ($articleList->lastpage() < $page) {
+            abort(404);
+        }
+        $tag['count'] = $articleList->total();
         return $this->view('blog-new.tag', compact('tag', 'articleList'));
     }
 

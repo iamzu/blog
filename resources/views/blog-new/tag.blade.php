@@ -66,5 +66,11 @@
                             class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
             </article>
         @endforeach
+        @if($articleList->lastpage() != 1)
+            @include('blog-new.layouts.page',[
+                'prePage'   =>  route('blog.tag.page',['name' => $tag['tag'],'page' => $articleList->currentPage() -1 ]),
+                'nextPage'  =>  route('blog.tag.page',['name' => $tag['tag'],'page' => $articleList->currentPage() +1 ]),
+            ])
+        @endif
     </div>
 @stop

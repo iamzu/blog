@@ -20,11 +20,16 @@
                     <time class="time"><i class="glyphicon glyphicon-time"></i>{{ $item['ui_created_at'] }}
                     </time>
                     <span class="views"><i class="glyphicon glyphicon-eye-open"></i> 共0人围观</span> <a
-                            class="comment"
-                            href="{{ route('blog.detail',['id' => $item['id']]) }}"><i
-                                class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
+                        class="comment"
+                        href="{{ route('blog.detail',['id' => $item['id']]) }}"><i
+                            class="glyphicon glyphicon-comment"></i> 0个不明物体</a></p>
             </article>
         @endforeach
-{{--        @include('blog-new.layouts.page')--}}
+        @if($articleList->lastpage() != 1)
+            @include('blog-new.layouts.page',[
+              'prePage'   =>  route('blog.index.page',['page' => $articleList->currentPage() -1 ]),
+              'nextPage'  =>  route('blog.index.page',['page' => $articleList->currentPage() +1 ]),
+          ])
+        @endif
     </div>
 @stop
