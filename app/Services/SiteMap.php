@@ -44,7 +44,7 @@ class SiteMap
 
         foreach ($postsInfo as $slug => $lastmod) {
             $xml[] = '  <url>';
-            $xml[] = "    <loc>{$url}blog/$slug</loc>";
+            $xml[] = "    <loc>{$url}post/$slug</loc>";
             $xml[] = "    <lastmod>$lastmod</lastmod>";
             $xml[] = "  </url>";
         }
@@ -57,10 +57,10 @@ class SiteMap
 
     protected function getPostsInfo()
     {
-        return Post::query()->where('published_at', '<=', Carbon::now())
+        return Post::query()
             ->where('is_draft', 0)
-            ->orderBy('published_at', 'desc')
-            ->pluck('updated_at', 'slug')
+            ->orderBy('created_at', 'desc')
+            ->pluck('created_at', 'id')
             ->all();
     }
 }

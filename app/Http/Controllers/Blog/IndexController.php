@@ -10,6 +10,7 @@ use App\Models\PostTagPivot;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Services\SiteMap;
 
 class IndexController extends Controller
 {
@@ -78,6 +79,14 @@ class IndexController extends Controller
         }
         $tag['count'] = $articleList->total();
         return $this->view('blog-new.tag', compact('tag', 'articleList'));
+    }
+
+    public function siteMap(SiteMap $siteMap)
+    {
+        $map = $siteMap->getSiteMap();
+
+        return response($map)
+            ->header('Content-type', 'text/xml');
     }
 
 }
