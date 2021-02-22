@@ -169,6 +169,16 @@
     //         }
     //     }]
     // });
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?9f248526132e4001667800fed66baa31";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 </script>
 </body>
 </html>
