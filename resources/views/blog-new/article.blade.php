@@ -56,13 +56,13 @@
             {!! $post->content_html !!}
             @if($post->tags[0]['id'] == 6)
                 <p class="article-copyright hidden-xs" style="font-size: 15px">
-                    本站 "设计模式" 相关文章知识点均来自
+                    本文中的知识点均来自
                     <a href="https://time.geekbang.org/column/intro/100039001" target="_blank">[极客时间 "设计模式之美"]</a>
                     是作者在学习过程中的笔记。
                 </p>
             @elseif($post->tags[0]['id'] == 10)
                 <p class="article-copyright hidden-xs" style="font-size: 15px">
-                    本站 "数据结构" 相关文章知识点均来自
+                    本文中的知识点均来自
                     <a href="https://time.geekbang.org/column/126" target="_blank">[极客时间 "数据结构与算法之美"]</a>
                     是作者在学习过程中的笔记。
                 </p>
