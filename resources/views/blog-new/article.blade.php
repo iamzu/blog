@@ -54,10 +54,18 @@
             {{--            <p><img data-original="{{$storage->url($post->page_image)}}"--}}
             {{--                    src="{{$storage->url($post->page_image)}}" alt=""/></p>--}}
             {!! $post->content_html !!}
-            <p class="article-copyright hidden-xs" style="font-size: 15px">本文为作者原创或转载，允许转载，由Chia2在<a href="/"
-                                                                                                     style="text-decoration:revert">{{ $title ?? config('blog.title') }}</a>
-                发布
-            </p>
+            @if($post->tags[0]['id'] == 6)
+                <p class="article-copyright hidden-xs" style="font-size: 15px">
+                    本站设计模式文章知识点均来自
+                    <a href="https://time.geekbang.org/column/intro/100039001" target="_blank">[极客时间 "设计模式之美"]</a>
+                    是作者在学习过程中的笔记。
+                </p>>
+            @else
+                <p class="article-copyright hidden-xs" style="font-size: 15px">本文为作者原创或转载，允许转载，由Chia2在<a href="/"
+                                                                                                         style="text-decoration:revert">{{ $title ?? config('blog.title') }}</a>
+                    发布
+                </p>
+            @endif
         </article>
         <div class="article-tags">
             标签：

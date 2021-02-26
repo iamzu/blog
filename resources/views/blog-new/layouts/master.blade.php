@@ -29,7 +29,7 @@
     <script src="{{asset_blog('js/html5shiv.min.js')}}" type="text/javascript"></script>
     <script src="{{asset_blog('js/respond.min.js')}}" type="text/javascript"></script>
     <script src="{{asset_blog('js/selectivizr-min.js')}}" type="text/javascript"></script>
-<!--    <link rel="stylesheet" type="text/css" href="{{asset('quietflow/css/index.css')}}">-->
+{{--   <link rel="stylesheet" type="text/css" href="{{asset('quietflow/css/index.css')}}"> --}}
 {{--    <link rel="stylesheet" type="text/css" href="{{asset('quietflow/css/prism.css')}}">--}}
     <![endif]-->
     <!--[if lt IE 9]>
