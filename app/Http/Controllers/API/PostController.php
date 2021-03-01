@@ -7,10 +7,17 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Blog\CommonActions;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
     use CommonActions;
+    private $storage;
+
+    public function __construct()
+    {
+        $this->storage = Storage::disk(config('admin.upload.disk'));
+    }
     public function index()
     {
         // 每页显示5条记录
@@ -20,7 +27,7 @@ class PostController extends Controller
             $item['id'] = $post->id;
             $item['title'] = $post->title;
             $item['summary'] = $post->subtitle;
-            $item['thumb'] = url(config('blog.uploads.webpath') . '/' . $post->page_image);
+            $item['thumb'] = $this->storage->url($post->page_image);
             $item['posted_at'] = $post->published_at;
             $item['views'] = random_int(1, 10000); // 暂时没有实现文章浏览数逻辑，返回随机数
             $items[] = $item;
