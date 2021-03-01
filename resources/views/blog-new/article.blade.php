@@ -67,7 +67,7 @@
                     是作者在学习过程中的笔记。
                 </p>
             @else
-                <p class="article-copyright hidden-xs" style="font-size: 15px">本文为作者原创或转载，允许转载，由Chia2在<a href="/"
+                <p class="article-copyright hidden-xs" style="font-size: 15px">本文为作者原创或转载，允许转载，由{{ $author ?? config('blog.author') }}在<a href="/"
                                                                                                          style="text-decoration:revert">{{ $title ?? config('blog.title') }}</a>
                     发布
                 </p>

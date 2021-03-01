@@ -1,11 +1,12 @@
 <?php
 
 return [
-    'name' => "Chia2",
-    'title' => "Chia2's Blog",
+    'name' => "July",
+    'title' => "July's Blog",
     'subtitle' => 'https://blog.chia2.com',
+    'domain' => 'blog.chia2.com',
     'description' => 'Share',
-    'author' => 'Chia2',
+    'author' => 'July',
     'page_image' => 'home-bg.jpg',
     'posts_per_page' => 8,
     'rss_size' => 25,
