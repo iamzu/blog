@@ -27,14 +27,17 @@ trait CommonActions
      * @param $page int
      * @return \Illuminate\Contracts\Pagination\Paginator
      */
-    public function articleList($page = 1): \Illuminate\Contracts\Pagination\Paginator
+    public function articleList($page = 1,$pageSize = null): \Illuminate\Contracts\Pagination\Paginator
     {
+        if(empty($pageSize)){
+            $pageSize = config('blog.posts_per_page');
+        }
         return Post::query()->with('tags')
 //            ->where('published_at', '<=', Carbon::now())
             ->where('is_draft', 0)
 //            ->orderBy('published_at', 'desc')
             ->orderBy('created_at', 'desc')
-            ->paginate(config('blog.posts_per_page'), '*', 'page', $page);
+            ->paginate($pageSize, '*', 'page', $page);
     }
 
     /**
