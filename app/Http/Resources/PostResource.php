@@ -20,7 +20,7 @@ class PostResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'image' => $storage->url($this->page_image),
-            'content' => $this->content_html,
+            'content' => $this->content_raw,
             'author' => config('blog.author'),
             'posted_at' => $this->ui_created_at,
             'views' => random_int(1, 100000),
