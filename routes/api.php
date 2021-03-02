@@ -19,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('throttle:60,1')->prefix('v1')->group(function() {
+Route::middleware('throttle:60,1')->prefix('v1')->domain(env('API_DOMAIN', 'api.chia2.com'))->group(function() {
     Route::get('/articles', [PostController::class, 'index'])->name('blog.articles');
 });
