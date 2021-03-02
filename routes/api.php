@@ -20,5 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::middleware('throttle:60,1')->prefix('v1')->domain(env('API_DOMAIN', 'api.chia2.com'))->group(function() {
-    Route::get('/articles', [PostController::class, 'index'])->name('blog.articles');
+    Route::get('/articles/{page?}', [PostController::class, 'index'])->name('blog.articles');
+    Route::get('/article/{id}',  [PostController::class, 'detail'])->where(['id' => '[1-9]{1}[0-9]*']);
 });
