@@ -23,4 +23,6 @@ Route::group([
     $router->resource('tags', 'TagController');
     //友情链接
     $router->resource('links', 'LinkController');
+    //关于
+    $router->resource('about', 'AboutController');
 });
