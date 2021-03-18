@@ -76,7 +76,7 @@
             <div class="collapse navbar-collapse" id="header-navbar">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden-index active"><a data-cont="July's Blog" href="index.html"></a></li>
-                    <li><a href="category.html"></a></li>
+                    <li><a href="{{ route('blog.tag',['name' => '速查表'])}}">速查表</a></li>
                     <li><a href="category.html"></a></li>
                     <li><a href="category.html"></a></li>
                     <li><a href="category.html"></a></li>
