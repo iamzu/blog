@@ -61,6 +61,7 @@ Route::group(['domain' => 'manage.chia2.com'], function () {
 Route::group(['domain' => env('BLOG_DOMAIN', 'blog.chia2.com')], function () {
     Route::get('sitemap.xml', [IndexController::class, 'siteMap']);
     Route::get('/', [IndexController::class, 'index'])->name('blog.index');
+    Route::get('about', [IndexController::class, 'about'])->name('blog.about');
     Route::get('/page/{page}', [IndexController::class, 'index'])->name('blog.index.page');
     Route::get('/post/{id}', [IndexController::class, 'showPost'])->name('blog.detail');
     Route::get('/tag/{name}', [IndexController::class, 'showTag'])->name('blog.tag');

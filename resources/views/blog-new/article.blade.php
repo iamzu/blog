@@ -28,6 +28,12 @@
         .article-content pre {
             padding: unset;
         }
+        .article-content ul {
+            list-style: unset!important;
+        }
+        .article-content ul li {
+            list-style: unset!important;
+        }
     </style>
     <div class="content">
         <header class="article-header">

@@ -57,7 +57,7 @@ function page_image($value = null)
  */
 function asset_blog($path)
 {
-    $version = 2021022211;
+    $version = 20210329;
     $path = '/blog_asset/'.$path."?v={$version}";
     return app('url')->asset($path, env('ASSET_HTTPS'));
 }

@@ -80,7 +80,7 @@
                     <li><a href="category.html"></a></li>
                     <li><a href="category.html"></a></li>
                     <li><a href="category.html"></a></li>
-                    <li><a href="category.html"></a></li>
+{{--                    <li><a href="{{ route('blog.about')}}">关于</a></li>--}}
                 </ul>
                 <form class="navbar-form visible-xs" action="/Search" method="post">
                     <div class="input-group">

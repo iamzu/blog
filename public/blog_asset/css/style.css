@@ -1642,52 +1642,6 @@ body, input, button, textarea, select {
     font-size: 12px;
     color: #AAA;
 }
-
-/*侧边栏热门文章*/
-.widget_hot li a {
-    padding: 10px 15px 10px 150px;
-    color: #888;
-    border-bottom: solid 1px #eee;
-    overflow: hidden;
-    position: relative;
-    display: block;
-    font-size: 14px;
-}
-
-.widget_hot li a:hover {
-    background-color: #FBFDFF;
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-}
-
-.widget_hot .thumbnail {
-    float: left;
-    margin-left: -135px;
-    border: none;
-    margin-bottom: 0;
-}
-
-.widget_hot .thumbnail img {
-    width: 122px;
-    height: 86px;
-}
-
-.widget_hot .text {
-    display: block;
-}
-
-.widget_hot li a:hover .text {
-    color: #3399CC;
-}
-
-.widget_hot .muted {
-    margin-right: 15px;
-    font-size: 12px;
-    color: #BBB;
-}
-
 /*底部*/
 .footer {
     clear: both;
