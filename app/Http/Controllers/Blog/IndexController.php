@@ -50,7 +50,9 @@ class IndexController extends Controller
             $tag = Tag::query()->where('tag', $tag)->firstOrFail();
         }
         $articleMap = $map['map'];
-        return $this->view('blog-new.article', compact('post', 'tag', 'articleMap'));
+        $prevPost = Post::query()->find(Post::getPrevPostId($id));
+        $nextPost = Post::query()->find(Post::getNextPostId($id));
+        return $this->view('blog-new.article', compact('post', 'tag', 'articleMap', 'prevPost', 'nextPost'));
     }
 
     private function view($layout, $data)

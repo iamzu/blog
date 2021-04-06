@@ -211,6 +211,34 @@ HTML;
 
     public function getUiCreatedAtAttribute()
     {
-        return date('Y-m-d',strtotime($this->created_at));
+        return date('Y-m-d', strtotime($this->created_at));
+    }
+
+    public static function getPrevPostId($id, $tag = null)
+    {
+        $model = self::query()->where([
+            ['id', '<', $id],
+            ['is_draft', 0]
+        ]);
+        if (empty($tag)) {
+            $model->with(['tags' => function ($q) use ($tag) {
+                $q->where('tag_id', $tag);
+            }]);
+        }
+        return $model->max('id');
+    }
+
+    public static function getNextPostId($id, $tag = null)
+    {
+        $model = self::query()->where([
+            ['id', '>', $id],
+            ['is_draft', 0]
+        ]);
+        if (empty($tag)) {
+            $model->with(['tags' => function ($q) use ($tag) {
+                $q->where('tag_id', $tag);
+            }]);
+        }
+        return $model->min('id');
     }
 }

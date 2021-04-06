@@ -6,41 +6,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
     <link href="{{ asset_blog('css/markdown.css') }}" rel="stylesheet">
     <link href="{{ asset('css/atom-one-dark.css') }}" rel="stylesheet">
+    <link href="{{ asset_blog('css/article.css') }}" rel="stylesheet">
 @stop
 @section('content')
-    <style>
-        .article-content img {
-            pointer-events: none
-        }
-
-        .gt-comments-null {
-            display: none;
-        }
-
-        .hljs {
-            display: block !important;
-            overflow-x: auto !important;
-            padding: 0.5em !important;
-            color: #abb2bf !important;
-            background: #282c34 !important;
-        }
-
-        .article-content pre {
-            padding: unset;
-        }
-        .article-content ul {
-            list-style: unset!important;
-        }
-        .article-content ul li {
-            list-style: unset!important;
-        }
-    </style>
     <div class="content">
         <header class="article-header">
             <h1 class="article-title"><a href="javascript:void(0)">{{$post->title}}</a></h1>
             <div class="article-meta">
                 <span class="item article-meta-time">
-          <time class="time" data-toggle="tooltip" data-placement="bottom" title="时间：2016-1-4 10:29:39"><i
+          <time class="time" data-toggle="tooltip" data-placement="bottom" title="时间：{{$post['ui_created_at']}}"><i
                   class="glyphicon glyphicon-time"></i>{{$post['ui_created_at']}}</time>
           </span>
                 <span class="item article-meta-category" data-toggle="tooltip" data-placement="bottom"
@@ -73,8 +47,9 @@
                     是作者在学习过程中的笔记。
                 </p>
             @else
-                <p class="article-copyright hidden-xs" style="font-size: 15px">本文为作者原创或转载，允许转载，由{{ $author ?? config('blog.author') }}在<a href="/"
-                                                                                                         style="text-decoration:revert">{{ $title ?? config('blog.title') }}</a>
+                <p class="article-copyright hidden-xs" style="font-size: 15px">
+                    本文为作者原创或转载，允许转载，由{{ $author ?? config('blog.author') }}在<a href="/"
+                                                                               style="text-decoration:revert">{{ $title ?? config('blog.title') }}</a>
                     发布
                 </p>
             @endif
@@ -85,13 +60,46 @@
                 <a href="" rel="tag">{{$tag->tag}}</a>
             @endforeach
         </div>
+        <aside class="post-nav">
+            @if(!empty($prevPost))
+                <span class="post-nav-prev">
+                <a href="{{ route('blog.detail',['id' => $prevPost->id]) }}">
+                    <i class="fa fa-chevron-left"></i>
+                     {{Str::limit($prevPost->title,30)}}
+                </a>
+            </span>
+            @endif
+            @if(!empty($nextPost))
+                <span class="post-nav-next">
+                <a href="{{ route('blog.detail',['id' => $nextPost->id]) }}">
+                    {{Str::limit($nextPost->title,30)}}
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </span>
+            @endif
+        </aside>
+        <figure class="author-info">
+            <section class="author-info-title">
+                <span class="pull-right">发表于：<time class="post-date" datetime="{{$post['ui_created_at']}}">{{$post['ui_created_at']}}</time></span>
+                <span>作者：七月</span>
+            </section>
+            <section class="author-info-content">
+                <span class="author-info-bio">关注互联网以及分享全栈工作经验的原创个人博客和技术博客，热爱编程，极客精神</span>
+                <section class="author-info-social">
+                    <a href="https://github.com/July-zy" class="author-info-social-github" target="_blank">Github</a>
+{{--                    <a href="https://weibo.com/wuyanzu?topnav=1&amp;wvr=6&amp;topsug=1&amp;is_hot=1" class="author-info-social-weibo" target="_blank">新浪微博</a>--}}
+                    <a href="https://segmentfault.com/u/lsoex" class="author-info-social-sf" target="_blank">SegmentFault</a>
+                    <a href="https://juejin.cn/user/36500343349620938" class="author-info-social-jj" target="_blank">掘金专栏</a>
+                </section>
+            </section>
+        </figure>
         {{--        <hr>--}}
-        <div id="post-comment">
-            <div class="comment-head">
-                <div class="comment-headline"><i class="fa fa-comments fa-fw"></i><span> 评论</span></div>
-            </div>
-            <div id="gitalk-container"></div>
-        </div>
+{{--        <div id="post-comment">--}}
+{{--            <div class="comment-head">--}}
+{{--                <div class="comment-headline"><i class="fa fa-comments fa-fw"></i><span> 评论</span></div>--}}
+{{--            </div>--}}
+{{--            <div id="gitalk-container"></div>--}}
+{{--        </div>--}}
         {{--       评论--}}
         {{--        <div class="title" id="comment">--}}
         {{--            <h3>评论 <small>抢沙发</small></h3>--}}

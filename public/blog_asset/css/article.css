@@ -1,0 +1,86 @@
+.article-content img {
+    pointer-events: none
+}
+
+.post-nav {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    padding: 15px 20px;
+    font-size: 14px;
+    color: #BBB;
+    margin-bottom: 20px;
+}
+
+.post-nav span {
+    float: left;
+    position: relative;
+}
+
+.post-nav span.post-nav-next {
+    float: right;
+    text-align: right;
+}
+.author-info {
+    border: 1px solid var(--border-color);
+    background: #FFF;
+    margin-bottom: 10px;
+}
+.author-info .author-info-title {
+    border-bottom: 1px solid var(--border-color);
+    padding: 2px 10px;
+    font-size: 14px !important;
+    background: #F9F9F9;
+    font-weight: 700;
+}
+.author-info .author-info-content {
+    padding: 10px;
+}
+
+.author-info-social {
+    margin-top: 10px;
+}
+
+.author-info-social a {
+    color: #FFF;
+    text-decoration: none;
+    padding: 4px 7px;
+    font-size: 14px;
+    white-space: nowrap;
+    margin-right: 10px;
+}
+.author-info-social .author-info-social-github {
+    background-color: #4A4A4A;
+}
+.author-info-social .author-info-social-weibo {
+    background-color: #D9534F;
+}
+.author-info-social .author-info-social-sf {
+    background-color: #5CB85C;
+}
+.author-info-social .author-info-social-jj {
+    background-color: #007fff;
+}
+.gt-comments-null {
+    display: none;
+}
+
+.hljs {
+    display: block !important;
+    overflow-x: auto !important;
+    padding: 0.5em !important;
+    color: #abb2bf !important;
+    background: #282c34 !important;
+}
+
+.article-content pre {
+    padding: unset;
+}
+
+.article-content ul {
+    list-style: unset !important;
+}
+
+.article-content ul li {
+    list-style: unset !important;
+}

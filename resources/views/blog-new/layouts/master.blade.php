@@ -43,6 +43,7 @@
             --tag-title-color: #2491F6;
             --post-meta: #9eabb3;
             --primary-color: #2491F6;
+            --border-color:#ebf2f6;
         }
         ul.fm-ul.fm-slide-in ul.fm-ul-component li.fm-li {
             box-sizing: content-box;
