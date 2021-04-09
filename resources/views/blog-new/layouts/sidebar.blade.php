@@ -82,6 +82,32 @@
         color: #fff;
     }
 
+    .h1,.h2,.h3,.h4,.h5,.h6 {
+        font-size: 14px;
+        list-style: unset !important;
+    }
+    .map {
+        padding-left: 2em;
+    }
+    .map .h2 {
+        padding-inline-start: 10px;
+    }
+    .map .h3 {
+        padding-inline-start: 15px;
+    }
+    .map .h4 {
+        padding-inline-start: 20px;
+    }
+    .map .h5 {
+        padding-inline-start: 25px;
+    }
+    .map li {
+        margin: 10px;
+    }
+    .map li a {
+        padding: 0;
+    }
+
 </style>
 <aside class="sidebar">
     <div class="fixed">
@@ -106,16 +132,16 @@
         <div id='schedule-box' class="boxshaw"></div>
     </div>
 
-    {{--    @if(($articleMap ?? null) && $isPost)--}}
-    {{--        <div class="fixed">--}}
-    {{--            <div class="widget widget_hot navigation">--}}
-    {{--                <h3>目录</h3>--}}
-    {{--                <ul>--}}
-    {{--                    {!! $articleMap !!}--}}
-    {{--                </ul>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    @endif--}}
+{{--    @if(($articleMap ?? null) && $isPost)--}}
+{{--        <div class="fixed">--}}
+{{--            <div class="widget widget_hot navigation">--}}
+{{--                <h3>目录</h3>--}}
+{{--                <ul class="map">--}}
+{{--                    {!! $articleMap !!}--}}
+{{--                </ul>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    @endif--}}
     {{--    <div class="widget widget_hot">--}}
     {{--        <h3>热门文章</h3>--}}
     {{--        <ul>--}}
@@ -144,7 +170,8 @@
         <h3><i class="fa fa-tags" style="margin-right: 10px;"></i>标签</h3>
         <div style="padding: 10px">
             @foreach($sidebarTags as $item)
-                <a class="friend tags tag-{{$item['id']}}" id="{{$item['id']}}" href="{{ route('blog.tag',['name' => $item['tag']]) }}">#{{$item['tag']}}</a>
+                <a class="friend tags tag-{{$item['id']}}" id="{{$item['id']}}"
+                   href="{{ route('blog.tag',['name' => $item['tag']]) }}">#{{$item['tag']}}</a>
             @endforeach
         </div>
     </div>

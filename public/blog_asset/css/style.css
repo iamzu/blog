@@ -955,8 +955,8 @@ body, input, button, textarea, select {
 .article-header {
     margin-bottom: 20px;
     padding: 25px 0;
-    border-bottom: 1px solid #EEE;
-    text-align: center;
+    /*border-bottom: 1px solid #EEE;*/
+    /*text-align: center;*/
 }
 
 .article-title {
