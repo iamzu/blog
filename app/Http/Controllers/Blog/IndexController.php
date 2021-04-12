@@ -41,18 +41,17 @@ class IndexController extends Controller
     {
         $post = Post::with('tags')->where('id', $id)->firstOrFail();
 
-        $map = Post::getArticleMapAndContent($post->content_html);
+        $content = Post::getArticleMapAndContent($post->content_html);
 
-        $post->content_html = $map['content'];
+        $post->content_html = $content;
 
         $tag = $request->get('tag');
         if ($tag) {
             $tag = Tag::query()->where('tag', $tag)->firstOrFail();
         }
-        $articleMap = $map['map'];
         $prevPost = Post::query()->find(Post::getPrevPostId($id));
         $nextPost = Post::query()->find(Post::getNextPostId($id));
-        return $this->view('blog-new.article', compact('post', 'tag', 'articleMap', 'prevPost', 'nextPost'));
+        return $this->view('blog-new.article', compact('post', 'tag', 'prevPost', 'nextPost'));
     }
 
     private function view($layout, $data)

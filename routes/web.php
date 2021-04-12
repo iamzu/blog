@@ -71,8 +71,8 @@ Route::group(['domain' => env('BLOG_DOMAIN', 'blog.chia2.com')], function () {
         return view('blog.upgrade-browser');
     });
 
-//    Route::get('/test', function () {
-//        return view('test');
-//    });
+    Route::get('/test', function () {
+        return view('test');
+    });
 });
 

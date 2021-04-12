@@ -80,26 +80,27 @@
         </aside>
         <figure class="author-info">
             <section class="author-info-title">
-                <span class="pull-right">发表于：<time class="post-date" datetime="{{$post['ui_created_at']}}">{{$post['ui_created_at']}}</time></span>
+                <span class="pull-right">发表于：<time class="post-date"
+                                                   datetime="{{$post['ui_created_at']}}">{{$post['ui_created_at']}}</time></span>
                 <span>作者：七月</span>
             </section>
             <section class="author-info-content">
                 <span class="author-info-bio">关注互联网以及分享全栈工作经验的原创个人博客和技术博客，热爱编程，极客精神</span>
                 <section class="author-info-social">
                     <a href="https://github.com/July-zy" class="author-info-social-github" target="_blank">Github</a>
-{{--                    <a href="https://weibo.com/wuyanzu?topnav=1&amp;wvr=6&amp;topsug=1&amp;is_hot=1" class="author-info-social-weibo" target="_blank">新浪微博</a>--}}
+                    {{--                    <a href="https://weibo.com/wuyanzu?topnav=1&amp;wvr=6&amp;topsug=1&amp;is_hot=1" class="author-info-social-weibo" target="_blank">新浪微博</a>--}}
                     <a href="https://segmentfault.com/u/lsoex" class="author-info-social-sf" target="_blank">SegmentFault</a>
                     <a href="https://juejin.cn/user/36500343349620938" class="author-info-social-jj" target="_blank">掘金专栏</a>
                 </section>
             </section>
         </figure>
         {{--        <hr>--}}
-{{--        <div id="post-comment">--}}
-{{--            <div class="comment-head">--}}
-{{--                <div class="comment-headline"><i class="fa fa-comments fa-fw"></i><span> 评论</span></div>--}}
-{{--            </div>--}}
-{{--            <div id="gitalk-container"></div>--}}
-{{--        </div>--}}
+        {{--        <div id="post-comment">--}}
+        {{--            <div class="comment-head">--}}
+        {{--                <div class="comment-headline"><i class="fa fa-comments fa-fw"></i><span> 评论</span></div>--}}
+        {{--            </div>--}}
+        {{--            <div id="gitalk-container"></div>--}}
+        {{--        </div>--}}
         {{--       评论--}}
         {{--        <div class="title" id="comment">--}}
         {{--            <h3>评论 <small>抢沙发</small></h3>--}}
@@ -141,21 +142,55 @@
 @stop
 @section('scripts')
 
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    {{--    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>--}}
     <script src="{{ asset('js/highlight.pack.js') }}"></script>
-    <script>
+    <script type="text/javascript">
+        $(function () {
+            // map();
+        });
         hljs.initHighlightingOnLoad();
+
+        function map() {
+            let postContent = document.querySelector('.article-content');
+
+            if (postContent) {
+                let categories = postContent.querySelectorAll('h1,h2,h3,h4,h5,h6');
+                console.log(categories);
+
+                if (categories.length > 0) { // 文章存在标题
+                    let map = document.querySelector('.map'),
+                        li = document.createElement('li'),
+                        a = document.createElement('a');
+
+                    categories.forEach((node,index) => {
+                        // 每次 cloneNode 取代 createElement
+                        // 因为克隆一个元素快于创建一个元素
+                        let _li = li.cloneNode(false),
+                            _a = a.cloneNode(false);
+
+                        _a.innerText = node.innerText;
+                        // 为标题设置跳转链接
+                        _a.href = '#toc-' + index;
+                        _li.appendChild(_a);
+                        // 为不同级别标题应用不同的缩进
+                        _li.style.paddingLeft = node.nodeName.slice(-1) * 15 + 'px';
+                        map.appendChild(_li);
+                    })
+                }
+
+            }
+        }
     </script>
-    <script>
-        var gitalk = new Gitalk({
-            clientID: '{{env('GITHUB_GITALK_CLIENTID','88debbb87ea8d82e7bd0')}}',
-            clientSecret: '{{env('GITHUB_GITALK_CLIENTSECRET','1989bc865afd40e9d8043c1a71a0afbdfd1bedf6')}}',
-            repo: 'blog-gitalk',
-            owner: 'Chia2-y',
-            admin: ['Chia2-y'],
-            id: location.pathname,      // Ensure uniqueness and length less than 50
-            distractionFreeMode: false  // Facebook-like distraction free mode
-        })
-        gitalk.render('gitalk-container')
-    </script>
+    {{--    <script>--}}
+    {{--        var gitalk = new Gitalk({--}}
+    {{--            clientID: '{{env('GITHUB_GITALK_CLIENTID','88debbb87ea8d82e7bd0')}}',--}}
+    {{--            clientSecret: '{{env('GITHUB_GITALK_CLIENTSECRET','1989bc865afd40e9d8043c1a71a0afbdfd1bedf6')}}',--}}
+    {{--            repo: 'blog-gitalk',--}}
+    {{--            owner: 'Chia2-y',--}}
+    {{--            admin: ['Chia2-y'],--}}
+    {{--            id: location.pathname,      // Ensure uniqueness and length less than 50--}}
+    {{--            distractionFreeMode: false  // Facebook-like distraction free mode--}}
+    {{--        })--}}
+    {{--        gitalk.render('gitalk-container')--}}
+    {{--    </script>--}}
 @stop

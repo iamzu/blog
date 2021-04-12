@@ -81,26 +81,6 @@
         background-color: rgba(36, 145, 246);
         color: #fff;
     }
-
-    .h1,.h2,.h3,.h4,.h5,.h6 {
-        font-size: 14px;
-        list-style: unset !important;
-    }
-    .map {
-        padding-left: 2em;
-    }
-    .map .h2 {
-        padding-inline-start: 10px;
-    }
-    .map .h3 {
-        padding-inline-start: 15px;
-    }
-    .map .h4 {
-        padding-inline-start: 20px;
-    }
-    .map .h5 {
-        padding-inline-start: 25px;
-    }
     .map li {
         margin: 10px;
     }
@@ -132,16 +112,7 @@
         <div id='schedule-box' class="boxshaw"></div>
     </div>
 
-{{--    @if(($articleMap ?? null) && $isPost)--}}
-{{--        <div class="fixed">--}}
-{{--            <div class="widget widget_hot navigation">--}}
-{{--                <h3>目录</h3>--}}
-{{--                <ul class="map">--}}
-{{--                    {!! $articleMap !!}--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    @endif--}}
+
     {{--    <div class="widget widget_hot">--}}
     {{--        <h3>热门文章</h3>--}}
     {{--        <ul>--}}
@@ -175,6 +146,16 @@
             @endforeach
         </div>
     </div>
+    {{--    @if(($articleMap ?? null) && $isPost)--}}
+{{--            <div class="fixed">--}}
+{{--                <div class="widget widget_hot navigation">--}}
+{{--                    <h3>目录</h3>--}}
+{{--                    <ul class="map">--}}
+{{--                        {!! $articleMap !!}--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+    {{--    @endif--}}
     <div class="widget widget_hot">
         <h3><i class="fa fa-link" style="margin-right: 10px;"></i>友情链接</h3>
         <div style="padding: 10px">
@@ -190,7 +171,6 @@
 <script>
     $(function () {
         $('.tags').each(function () {
-            console.log($(this).attr('id'));
             tagColor($(this).attr('id'));
         })
     });

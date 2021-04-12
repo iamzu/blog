@@ -168,7 +168,7 @@ class Post extends Model
         return Tag::all()->pluck('tag', 'id')->toArray();
     }
 
-    public static function getArticleMapAndContent($html): array
+    public static function getArticleMapAndContent($html)
     {
 
         $doc = new \DOMDocument();
@@ -194,19 +194,8 @@ class Post extends Model
             $newId = 'toc-' . count($idMap);
             $item->setAttribute('id', $newId);
             $idMap[$newId] = true;
-
-            $mapHTML .= <<<HTML
-<li class="page-nav-item h1">
-    <a href="#{$newId}" class="limit-text block">
-         <strong>{$item->nodeValue}</strong>
-    </a>
-</li>
-HTML;
         }
-        return [
-            'content' => $doc->saveHTML(),
-            'map' => $mapHTML,
-        ];
+        return $doc->saveHTML();
     }
 
     public function getUiCreatedAtAttribute()
