@@ -36,6 +36,7 @@ class PostController extends AdminController
                 return <<<HTML
             <span>{$this->created_at}</span>
             <br>
+            <br>
             <span>{$this->updated_at}</span>
 HTML;
             });

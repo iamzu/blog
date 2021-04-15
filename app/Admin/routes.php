@@ -25,4 +25,9 @@ Route::group([
     $router->resource('links', 'LinkController');
     //关于
     $router->resource('about', 'AboutController');
+    //记账
+    //账单类别
+    $router->resource('bill-type', 'BillTypeController');
+    //账单
+    $router->resource('bill', 'BillController');
 });
