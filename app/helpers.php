@@ -61,3 +61,16 @@ function asset_blog($path)
     $path = '/blog_asset/'.$path."?v={$version}";
     return app('url')->asset($path, env('ASSET_HTTPS'));
 }
+
+/**
+ * 二位数组元素替换键值
+ * @param array  $arr
+ * @param string $id
+ * @return array|false
+ */
+function arrayCombine($arr = [], $id = '')
+{
+    $temp_key = array_column($arr, $id);  //键值 php5.5+
+    $mobile_arr = array_combine($temp_key, $arr);
+    return $mobile_arr;
+}

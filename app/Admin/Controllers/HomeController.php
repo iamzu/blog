@@ -14,22 +14,19 @@ class HomeController extends Controller
     public function index(Content $content)
     {
         return $content
-            ->header('Dashboard')
-            ->description('Description...')
+            ->header('首页')
             ->body(function (Row $row) {
                 $row->column(6, function (Column $column) {
-                    $column->row(Dashboard::title());
-                    $column->row(new Examples\Tickets());
+                    $column->row(new Examples\Orders());
                 });
 
                 $row->column(6, function (Column $column) {
                     $column->row(function (Row $row) {
-                        $row->column(6, new Examples\NewUsers());
-                        $row->column(6, new Examples\NewDevices());
+//                        $row->column(6, new Examples\NewUsers());
+//                        $row->column(6, new Examples\NewDevices());
                     });
 
-                    $column->row(new Examples\Sessions());
-                    $column->row(new Examples\ProductOrders());
+//                    $column->row(new Examples\Sessions());
                 });
             });
     }

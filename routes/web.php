@@ -8,6 +8,7 @@ use App\Http\Controllers\Blog\IndexController;
 
 //use App\Http\Controllers\BlogController;
 //use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
 
@@ -71,8 +72,6 @@ Route::group(['domain' => env('BLOG_DOMAIN', 'blog.chia2.com')], function () {
         return view('blog.upgrade-browser');
     });
 
-    Route::get('/test', function () {
-        return view('test');
-    });
+    Route::get('/test', [TestController::class,'index']);
 });
 
