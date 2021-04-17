@@ -12,7 +12,7 @@ class TestController extends Controller
     //
     public function index()
     {
-        return view('test2');
+        return view('test');
 //        dump(Carbon::now()->subMonth()->startOfMonth()->format('Y-m-d H:i:s'));
 //        dump(Carbon::now()->subMonth()->endOfMonth()->format('Y-m-d H:i:s'));
         $data = Bill::query()->where('user_id',1)->whereBetween('created_at',[

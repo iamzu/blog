@@ -39,6 +39,7 @@ class Orders extends Round
             case '30':
             case '0':
             default:
+                $this->chartLabels($arr['labels']);
                 // 卡片内容
                 $this->content($arr['html']);
                 // 图表数据
@@ -95,8 +96,9 @@ class Orders extends Round
         }
         $data = Bill::query()->where('user_id', 1)
             ->whereBetween('created_at', $whereBetween)
-            ->groupBy('tag_id')
-            ->selectRaw('tag_id as tag,sum(money) as money')
+            ->groupBy('parent_tag_id')
+            ->selectRaw('parent_tag_id as tag,sum(money) as money')
+            ->orderBy('money','desc')
             ->get()
             ->toArray();
         $data = arrayCombine($data, 'tag');
@@ -104,7 +106,13 @@ class Orders extends Round
         $tags = BillType::query()->whereIn('id', $tagIds)->pluck('tag', 'id')->toArray();
 
         $total = collect($data)->sum('money');
-        $moneys = collect($data)->pluck('money')->toArray();
+        $moneyAndTag = collect($data)->pluck('money','tag')->toArray();
+        $moneys = [];
+        $labels = [];
+        foreach ($moneyAndTag as $k => $v){
+            $moneys[] = $v;
+            $labels[] = $tags[$k];
+        }
 
         $blue = 'green';
 
@@ -124,6 +132,6 @@ class Orders extends Round
 HTML;
         }
         $html .= '</div>';
-        return compact(['html', 'total', 'moneys']);
+        return compact(['html', 'total', 'moneys','labels']);
     }
 }
