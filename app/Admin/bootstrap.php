@@ -25,11 +25,11 @@ use Dcat\Admin\Form\Field\Markdown;
  */
 Form::resolving(function (Form $form) {
     $form->disableEditingCheck();
-
-    $form->disableCreatingCheck();
-
+//
+//    $form->disableCreatingCheck();
+//
     $form->disableViewCheck();
-
+//
     $form->tools(function (Form\Tools $tools) {
         $tools->disableDelete();
         $tools->disableView();
