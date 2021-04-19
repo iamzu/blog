@@ -27,7 +27,7 @@ class BillTypeController extends AdminController
                 if($userId !== 1){
                     $tree->actions(function (Tree\Actions $actions) use ($userId) {
                         $actions->disableDelete(); // 禁用删除按钮
-                        if ($actions->row->id !== $userId) {
+                        if ($actions->row->user_id !== $userId) {
                             $actions->disableEdit(); // 禁用删除按钮
                         }
                     });
