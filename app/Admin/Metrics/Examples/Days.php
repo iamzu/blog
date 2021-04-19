@@ -47,7 +47,7 @@ class Days extends Line
                 break;
 
         }
-        $data = Bill::query()->where('user_id', 1)
+        $data = Bill::query()
             ->whereBetween('created_at', [
                 $time,
                 Carbon::now()->format('Y-m-d H:i:s'),

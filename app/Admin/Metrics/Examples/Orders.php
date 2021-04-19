@@ -85,7 +85,7 @@ class Orders extends Donut
                 ];
                 break;
         }
-        $data = Bill::query()->where('user_id', 1)
+        $data = Bill::query()
             ->whereBetween('created_at', $whereBetween)
             ->where([
                 ['type',1],

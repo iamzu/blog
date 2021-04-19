@@ -54,7 +54,7 @@ class Month extends Chart
      */
     protected function buildData()
     {
-        $order = $data = Bill::query()->where('user_id', 1)
+        $order = $data = Bill::query()
             ->whereBetween('created_at', [
                 Carbon::now()->startOfMonth()->format('Y-m-d H:i:s'),
                 Carbon::now()->endOfMonth()->format('Y-m-d H:i:s'),
