@@ -59,7 +59,10 @@ class Month extends Chart
                 Carbon::now()->startOfMonth()->format('Y-m-d H:i:s'),
                 Carbon::now()->endOfMonth()->format('Y-m-d H:i:s'),
             ])
-            ->where('type',1)
+            ->where([
+                ['type',1],
+                ['user_id',Admin::user()->id]
+            ])
             ->groupBy('created_at')
             ->selectRaw("sum(money) as money,DATE_FORMAT(`created_at`,'%Y-%m-%d') as create_time")
             ->orderBy('create_time')

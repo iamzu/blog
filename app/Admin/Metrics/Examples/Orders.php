@@ -6,10 +6,10 @@ use App\Models\Bill;
 use App\Models\BillType;
 use Carbon\Carbon;
 use Dcat\Admin\Admin;
-use Dcat\Admin\Widgets\Metrics\Round;
+use Dcat\Admin\Widgets\Metrics\Donut;
 use Illuminate\Http\Request;
 
-class Orders extends Round
+class Orders extends Donut
 {
     /**
      * 初始化卡片内容
@@ -18,7 +18,7 @@ class Orders extends Round
     {
         parent::init();
 
-        $this->title('账单');
+        $this->title('TOP3');
         $this->dropdown([
             '0' => '本月',
             '30' => '上月',
@@ -35,18 +35,9 @@ class Orders extends Round
     public function handle(Request $request)
     {
         $arr = $this->withContent($request->get('option'));
-        switch ($request->get('option')) {
-            case '30':
-            case '0':
-            default:
-                $this->chartLabels($arr['labels']);
-                // 卡片内容
-                $this->content($arr['html']);
-                // 图表数据
-                $this->withChart($arr['moneys']);
-                // 总数
-                $this->chartTotal('总金额',$arr['total']);
-        }
+        $this->chartLabels($arr['labels']);
+        $this->content($arr['html']);
+        $this->withChart($arr['moneys']);
     }
 
     /**
@@ -96,10 +87,14 @@ class Orders extends Round
         }
         $data = Bill::query()->where('user_id', 1)
             ->whereBetween('created_at', $whereBetween)
-            ->where('type',1)
+            ->where([
+                ['type',1],
+                ['user_id',Admin::user()->id]
+            ])
             ->groupBy('parent_tag_id')
             ->selectRaw('parent_tag_id as tag,sum(money) as money')
             ->orderBy('money','desc')
+            ->limit(3)
             ->get()
             ->toArray();
         $data = arrayCombine($data, 'tag');
@@ -117,22 +112,21 @@ class Orders extends Round
 
         $blue = 'green';
 
-        $html = '<div class="col-12 d-flex flex-column flex-wrap text-center" style="max-width: 220px">';
+        $html = null;
 
+        $style = 'margin-bottom: 2px';
+        $labelWidth = 120;
         foreach ($data as $k => $v) {
             $html .= <<<HTML
-    <div class="chart-info d-flex justify-content-between mb-1 mt-2" >
-          <div class="series-info d-flex align-items-center">
-              <i class="fa fa-circle-o text-bold-700 " style="color: {$blue}"></i>
-              <span class="text-bold-600 ml-50">{$tags[$k]}</span>
-          </div>
-          <div class="product-result">
-              <span>￥{$v['money']}</span>
-          </div>
+<div class="d-flex pl-1 pr-1 pt-1" style="{$style}">
+    <div style="width: {$labelWidth}px">
+        <i class="fa fa-circle text-primary"></i> {$tags[$k]}
     </div>
+    <div>￥{$v['money']}</div>
+</div>
+
 HTML;
         }
-        $html .= '</div>';
         return compact(['html', 'total', 'moneys','labels']);
     }
 }

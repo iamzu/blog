@@ -2,6 +2,9 @@
 
 namespace App\Admin\Metrics\Examples;
 
+use App\Models\Bill;
+use Carbon\Carbon;
+use Dcat\Admin\Admin;
 use Dcat\Admin\Widgets\Metrics\Card;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
@@ -22,12 +25,10 @@ class TotalUsers extends Card
     {
         parent::init();
 
-        $this->title('Total Users');
+        $this->title('总消费');
         $this->dropdown([
-            '7' => 'Last 7 Days',
-            '28' => 'Last 28 Days',
-            '30' => 'Last Month',
-            '365' => 'Last Year',
+            '0' => '本月',
+            '30' => '上月',
         ]);
     }
 
@@ -41,23 +42,30 @@ class TotalUsers extends Card
     public function handle(Request $request)
     {
         switch ($request->get('option')) {
-            case '365':
-                $this->content(mt_rand(600, 1500));
-                $this->down(mt_rand(1, 30));
+            case '0':
+            default:
+                $whereBetween = [
+                    Carbon::now()->startOfMonth()->format('Y-m-d H:i:s'),
+                    Carbon::now()->endOfMonth()->format('Y-m-d H:i:s'),
+                ];
+
                 break;
             case '30':
-                $this->content(mt_rand(170, 250));
-                $this->up(mt_rand(12, 50));
+                $whereBetween = [
+                    Carbon::now()->subMonth()->startOfMonth()->format('Y-m-d H:i:s'),
+                    Carbon::now()->subMonth()->endOfMonth()->format('Y-m-d H:i:s'),
+                ];
                 break;
-            case '28':
-                $this->content(mt_rand(155, 200));
-                $this->up(mt_rand(5, 50));
-                break;
-            case '7':
-            default:
-                $this->content(143);
-                $this->up(15);
         }
+        $data = Bill::query()->where('user_id', 1)
+            ->whereBetween('created_at', $whereBetween)
+            ->where([
+                ['type',1],
+                ['user_id',Admin::user()->id]
+            ])
+            ->sum('money');
+        $this->content($data / 100);
+        $this->up(15);
     }
 
     /**
@@ -109,7 +117,7 @@ class TotalUsers extends Card
 
         return <<<HTML
 <div class="d-flex justify-content-between align-items-center mt-1" style="margin-bottom: 2px">
-    <h2 class="ml-1 font-lg-1">{$content}</h2>
+    <h2 class="ml-1 font-lg-1">￥{$content}</h2>
 </div>
 <div class="ml-1 mt-1 font-weight-bold text-80">
     {$this->renderFooter()}

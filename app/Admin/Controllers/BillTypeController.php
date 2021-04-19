@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Repositories\BillType;
+use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Layout\Column;
@@ -26,6 +27,7 @@ class BillTypeController extends AdminController
                 $row->column(6, function (Column $column) {
                     $form = new TreeForm();
                     $form->action(admin_url('/bill-type'));
+                    $form->hidden('user_id')->value(Admin::user()->id);
                     $form->text('tag')->required();
                     $form->select('pid','父级')
                         ->options(\App\Models\BillType::query()->where('level',1)->pluck('tag', 'id'))->required();

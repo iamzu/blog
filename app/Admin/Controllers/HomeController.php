@@ -17,15 +17,18 @@ class HomeController extends Controller
             ->header('首页')
             ->body(function (Row $row) {
                 $row->column(12, function (Column $column) {
-                    $column->row(new Examples\Orders());
-                });
-
-                $row->column(12, function (Column $column) {
                     $column->row(function (Row $row) {
-                        $row->column(6,new Examples\Week());
-                        $row->column(6,new Examples\Month());
+                        $row->column(4,new Examples\Orders());
+                        $row->column(4,new Examples\Days());
+                        $row->column(4,new Examples\TotalUsers());
                     });
                 });
+                $row->column(12, function (Column $column) {
+                    $column->row(function (Row $row) {
+//                        $row->column(12,new Examples\Week());
+                    });
+                });
+                $row->column(12,new Examples\Month());
 
             });
     }

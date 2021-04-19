@@ -13,7 +13,7 @@ class Week extends Chart
     public function __construct($containerSelector = null, $options = [])
     {
         parent::__construct($containerSelector, $options);
-        $this->title('本周消费');
+        $this->title('近七天消费');
         $this->setUpOptions();
     }
 
@@ -24,12 +24,12 @@ class Week extends Chart
     {
         $color = Admin::color();
 
-        $colors = [$color->primary(), $color->primaryDarker()];
+        $colors = [$color->success(), $color->warning()];
 
         $this->options([
             'colors' => $colors,
             'chart' => [
-                'type' => 'line',
+                'type' => 'area',
                 'height' => 430,
                 'zoom' => [
                     'enabled' => false
@@ -56,8 +56,8 @@ class Week extends Chart
     {
         $order = $data = Bill::query()->where('user_id', 1)
             ->whereBetween('created_at', [
-                Carbon::now()->endOfWeek()->format('Y-m-d H:i:s'),
-                Carbon::now()->endOfWeek()->format('Y-m-d H:i:s'),
+                Carbon::now()->modify('-7 days')->format('Y-m-d 00:00:00'),
+                Carbon::now()->format('Y-m-d H:i:s'),
             ])
             ->where('type',1)
             ->groupBy('created_at')

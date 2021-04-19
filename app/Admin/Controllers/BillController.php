@@ -6,6 +6,7 @@ use App\Admin\Repositories\Bill;
 use App\Models\BillType;
 use App\Models\Tag;
 use Carbon\Carbon;
+use Dcat\Admin\Admin;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
@@ -81,7 +82,7 @@ HTML;
     {
         return Form::make(new Bill(), function (Form $form) {
             $form->display('id');
-//            $form->text('user_id');
+            $form->hidden('user_id')->value(Admin::user()->id);
 
             $form->select('parent_tag_id')
                 ->options(BillType::all()->where('level', 1)->pluck('tag', 'id'))->required()->load('tag_id', route('sub-bill-type'));
