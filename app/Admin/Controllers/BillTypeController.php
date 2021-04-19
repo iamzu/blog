@@ -23,6 +23,11 @@ class BillTypeController extends AdminController
         return $content->header('账单类别')
             ->body(function (Row $row){
                 $tree = new Tree(new BillType());
+                if(Admin::user()->id !== 1){
+                    $tree->actions(function (Tree\Actions $actions) {
+                        $actions->disableDelete(); // 禁用删除按钮
+                    });
+                }
                 $row->column(6,$tree);
                 $row->column(6, function (Column $column) {
                     $form = new TreeForm();
