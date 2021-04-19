@@ -7,6 +7,7 @@ return [
     'fields' => [
         'user_id' => '用户',
         'tag_id' => '类别',
+        'parent_tag_id' => '主类别',
         'type' => '类型',
         'money' => '金额',
         'remarks' => '备注',

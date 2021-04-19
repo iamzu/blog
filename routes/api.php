@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\ImageController;
 use App\Http\Controllers\API\PostController;
+use App\Models\BillType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/sub-bill-type',function(Request $request){
+    $provinceId = $request->input('q');
+    return BillType::query()->where('pid', $provinceId)->get(['id', DB::raw('tag as text')]);
+})->name('sub-bill-type');
 
 Route::middleware('throttle:60,1')->prefix('v1')->domain(env('API_DOMAIN', 'api.chia2.com'))->group(function() {
     Route::get('/articles/{page?}', [PostController::class, 'index'])->name('blog.articles');

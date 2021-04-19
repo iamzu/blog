@@ -5,10 +5,12 @@ namespace App\Admin\Controllers;
 use App\Admin\Repositories\Bill;
 use App\Models\BillType;
 use App\Models\Tag;
+use Carbon\Carbon;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Request;
 
 class BillController extends AdminController
 {
@@ -80,14 +82,23 @@ HTML;
         return Form::make(new Bill(), function (Form $form) {
             $form->display('id');
 //            $form->text('user_id');
-            $form->select('tag_id')
-                ->options(BillType::all()->pluck('tag', 'id'))->required();
+
+            $form->select('parent_tag_id')
+                ->options(BillType::all()->where('level', 1)->pluck('tag', 'id'))->required()->load('tag_id', route('sub-bill-type'));
+            $form->select('tag_id')->required();
+
             $form->radio('type')->options(['1' => '支出', '2' => '收入'])->default('1');
             $form->currency('money')->symbol('￥');
             $form->textarea('remarks');
 
-            $form->date('created_at')->required();
+            $form->date('created_at')->default(Carbon::now()->format('Y-m-d'))->required();
             $form->display('updated_at');
         });
+    }
+
+    public function subBillType(Request $request)
+    {
+        $pid = $request->input('q');
+        dd($pid);
     }
 }

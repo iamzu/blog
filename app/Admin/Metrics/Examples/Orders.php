@@ -96,6 +96,7 @@ class Orders extends Round
         }
         $data = Bill::query()->where('user_id', 1)
             ->whereBetween('created_at', $whereBetween)
+            ->where('type',1)
             ->groupBy('parent_tag_id')
             ->selectRaw('parent_tag_id as tag,sum(money) as money')
             ->orderBy('money','desc')
