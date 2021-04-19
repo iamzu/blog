@@ -23,6 +23,7 @@ class BillController extends AdminController
     protected function grid()
     {
         return Grid::make(new Bill(), function (Grid $grid) {
+            $grid->model()->where('user_id',Admin::user()->id);
             $grid->column('id')->sortable();
 //            $grid->column('user_id');
             $grid->column('tag_id')->display(function () {
