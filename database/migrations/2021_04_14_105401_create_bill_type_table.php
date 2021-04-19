@@ -16,6 +16,8 @@ class CreateBillTypeTable extends Migration
         Schema::create('bill_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tag')->default('');
+            $table->string('level')->default(1);
+            $table->string('pid')->default(0);
             $table->integer('user_id')->default('1');
             $table->tinyInteger('status')->default('1')->comment('1启用 2禁用');
             $table->integer('income_money')->default('0')->comment('收入金额  单位分');
