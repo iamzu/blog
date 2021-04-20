@@ -37,7 +37,7 @@ class BillController extends AdminController
             $grid->column('remarks');
             $grid->column('created_at','日期')->display(function($val){
                 return date('Y-m-d',strtotime($val));
-            });
+            })->sortable();
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
             });
