@@ -23,7 +23,7 @@ class BillController extends AdminController
     protected function grid()
     {
         return Grid::make(new Bill(), function (Grid $grid) {
-            $grid->model()->where('user_id',Admin::user()->id);
+            $grid->model()->where('user_id',Admin::user()->id)->orderBy('created_at','desc');
             $grid->column('type')->using([1 => '支出', 2 => '收入'])->label([
                 1 => 'default',
                 2 => 'danger',
